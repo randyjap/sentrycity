@@ -27,6 +27,8 @@ gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.1', require: false
 # Use devise as authenticator
 gem 'devise'
+# Use omniauth-facebook to authenticate via facebook
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
