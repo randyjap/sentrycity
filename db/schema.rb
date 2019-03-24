@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_094826) do
+ActiveRecord::Schema.define(version: 2019_03_24_153800) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,36 @@ ActiveRecord::Schema.define(version: 2019_03_24_094826) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "event_type", null: false
+    t.datetime "event_date", null: false
+    t.string "district", null: false
+    t.string "address", null: false
+    t.decimal "lat", precision: 10, scale: 6, null: false
+    t.decimal "lng", precision: 10, scale: 6, null: false
+    t.text "description"
+    t.string "bhours_0"
+    t.string "bhours_1"
+    t.string "bhours_2"
+    t.string "bhours_3"
+    t.string "bhours_4"
+    t.string "bhours_5"
+    t.string "bhours_6"
+    t.string "bhours_7"
+    t.string "phone"
+    t.text "url"
+    t.string "state", default: "draft", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["district"], name: "index_stores_on_district"
+    t.index ["event_type"], name: "index_stores_on_event_type"
+    t.index ["name"], name: "index_stores_on_name"
+    t.index ["state"], name: "index_stores_on_state"
+    t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
