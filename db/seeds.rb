@@ -3,6 +3,19 @@ User.find_or_create_by(id: 1) do |u|
   u.email = 'user01@example.com'
 end
 
+goods = [
+  'Fashion',
+  'Clothing',
+  'Electronics & Computers',
+  'Books',
+  'Pet Supplies',
+  'Baby',
+  'Beauty & Healthcare',
+  'Other',
+]
+
+goods.each { |g| Good.find_or_create_by(name: g) }
+
 Store.find_or_create_by(id: 1) do |s|
   s.name = 'Pandora'
   s.event_type = 'Grand Opening'
@@ -24,4 +37,5 @@ Store.find_or_create_by(id: 1) do |s|
   s.url = 'example'
   s.state = 'active'
   s.user_id = 1
+  s.goods = Good.all
 end
