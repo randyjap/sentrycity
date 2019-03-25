@@ -1,6 +1,6 @@
 User.find_or_create_by(id: 1) do |u|
   u.password = 'password'
-  u.email = 'user01@example.com'
+  u.email = 'randyjap@gmail.com'
 end
 
 goods = [
@@ -38,4 +38,10 @@ Store.find_or_create_by(id: 1) do |s|
   s.state = 'active'
   s.user_id = 1
   s.goods = Good.all
+end
+
+Comment.find_or_create_by(id: 1) do |c|
+  c.text = 'Hello world'
+  c.user_id = 1
+  c.store_id = 1
 end

@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable
 
   has_many :stores, inverse_of: :user
+  has_many :comments, inverse_of: :user
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -18,11 +19,23 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name
-      user.image = auth.info.image
+    existing_user = User.find_by(email: auth.info.email)
+    if existing_user && existing_user.uid.nil?
+      existing_user.tap do |user |
+        user.update(
+          provider: auth.provider,
+          uid: auth.uid,
+          name: auth.info.name,
+          image: auth.info.image
+        )
+      end
+    else
+      find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+        user.name = auth.info.name
+        user.image = auth.info.image
+      end
     end
   end
 end

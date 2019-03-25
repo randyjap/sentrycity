@@ -3,4 +3,5 @@ class Store < ApplicationRecord
   belongs_to :user, inverse_of: :stores
   has_many :goods_stores, inverse_of: :store
   has_many :goods, through: :goods_stores
+  has_many :comments, inverse_of: :store
 end
