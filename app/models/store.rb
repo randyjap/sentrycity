@@ -4,4 +4,5 @@ class Store < ApplicationRecord
   has_many :goods_stores, inverse_of: :store
   has_many :goods, through: :goods_stores
   has_many :comments, inverse_of: :store
+  has_many :bookmarks, inverse_of: :store
 end

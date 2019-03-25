@@ -45,3 +45,8 @@ Comment.find_or_create_by(id: 1) do |c|
   c.user_id = 1
   c.store_id = 1
 end
+
+Bookmark.find_or_create_by(id: 1) do |c|
+  c.user_id = 1
+  c.store_id = 1
+end

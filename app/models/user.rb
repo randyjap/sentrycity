@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :stores, inverse_of: :user
   has_many :comments, inverse_of: :user
+  has_many :bookmarks, inverse_of: :user
 
   def self.new_with_session(params, session)
     super.tap do |user|
