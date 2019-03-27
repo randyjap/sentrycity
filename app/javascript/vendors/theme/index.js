@@ -15,7 +15,7 @@ import Swiper from "swiper"
 
 'use strict';
 
-$(function () {
+$(document).on("turbolinks:load", function () {
 
     // ------------------------------------------------------- //
     //   Lightbox in galleries

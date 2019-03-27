@@ -29,6 +29,8 @@ gem 'bootsnap', '>= 1.4.1', require: false
 gem 'devise'
 # Use omniauth-facebook to authenticate via facebook
 gem 'omniauth-facebook'
+# Better console output
+gem 'awesome_print'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
