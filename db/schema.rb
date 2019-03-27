@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_144424) do
+ActiveRecord::Schema.define(version: 2019_03_27_043339) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 2019_03_26_144424) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "districts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_districts_on_name"
+  end
+
   create_table "goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -77,7 +84,6 @@ ActiveRecord::Schema.define(version: 2019_03_26_144424) do
     t.string "name", null: false
     t.string "event_type", null: false
     t.datetime "event_date", null: false
-    t.string "district", null: false
     t.string "address", null: false
     t.decimal "lat", precision: 10, scale: 6, null: false
     t.decimal "lng", precision: 10, scale: 6, null: false
@@ -97,7 +103,8 @@ ActiveRecord::Schema.define(version: 2019_03_26_144424) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "discount"
-    t.index ["district"], name: "index_stores_on_district"
+    t.bigint "district_id"
+    t.index ["district_id"], name: "index_stores_on_district_id"
     t.index ["event_type"], name: "index_stores_on_event_type"
     t.index ["name"], name: "index_stores_on_name"
     t.index ["state"], name: "index_stores_on_state"

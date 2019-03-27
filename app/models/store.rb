@@ -6,6 +6,7 @@ class Store < ApplicationRecord
 
   has_many_attached :photos
   belongs_to :user, inverse_of: :stores
+  belongs_to :district, inverse_of: :stores
   has_many :goods_stores, inverse_of: :store
   has_many :goods, through: :goods_stores
   has_many :comments, inverse_of: :store
