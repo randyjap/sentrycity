@@ -17,15 +17,12 @@
             <div data-marker-id="<%= store.id.hash %>" class="w-100 h-100">
               <div class="card h-100 border-0 shadow">
                 <div class="ribbon ribbon-secondary"><%= store.discount %>% Off Sale</div>
-                <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><a href="detail.html" class="tile-link"></a>
-                <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count %> points - <%= store.comment_count.to_s + " " + "comment".pluralize(store.comment_count) %></div>
-                <div class="card-img-overlay-top text-right"><a href="javascript: void();" class="card-fav-icon position-relative z-index-40">
-                  <svg class="svg-icon text-white"><use xlink:href="#heart-1"></use></svg></a>
-                </div>
+                <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><%= link_to("", store, class: "tile-link") %>
+                <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count_message %> - <%= store.comment_count_message %></div>
               </div>
               <div class="card-body d-flex align-items-center">
                 <div class="w-100">
-                  <h6 class="card-title"><a href="detail.html" class="text-decoration-none text-dark"><%= store.name %></a></h6>
+                  <h6 class="card-title"><%= link_to(store.name, store, class: "text-decoration-none text-dark") %></h6>
                   <div class="d-flex card-subtitle mb-3">
                     <p class="flex-grow-1 mb-0 text-muted text-sm"><i class="fa-map-marker-alt fas mr-2"></i><%= store.address %></p>
                   </div>
@@ -63,15 +60,12 @@
             <div data-marker-id="<%= store.id.hash %>" class="w-100 h-100">
               <div class="card h-100 border-0 shadow">
                 <div class="ribbon ribbon-primary"><%= store.discount %>% Off Sale</div>
-                <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><a href="detail.html" class="tile-link"></a>
-                <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count %> points - <%= store.comment_count.to_s + " " + "comment".pluralize(store.comment_count) %></div>
-                <div class="card-img-overlay-top text-right"><a href="javascript: void();" class="card-fav-icon position-relative z-index-40">
-                  <svg class="svg-icon text-white"><use xlink:href="#heart-1"></use></svg></a>
-                </div>
+                <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><%= link_to("", store, class: "tile-link") %>
+                <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count_message %> - <%= store.comment_count_message %></div>
               </div>
               <div class="card-body d-flex align-items-center">
                 <div class="w-100">
-                  <h6 class="card-title"><a href="detail.html" class="text-decoration-none text-dark"><%= store.name %></a></h6>
+                  <h6 class="card-title"><%= link_to(store.name, store, class: "text-decoration-none text-dark") %></h6>
                   <div class="d-flex card-subtitle mb-3">
                     <p class="flex-grow-1 mb-0 text-muted text-sm"><i class="fa-map-marker-alt fas mr-2"></i><%= store.address %></p>
                   </div>

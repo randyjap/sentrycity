@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Commentable
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :omniauthable, :omniauth_providers => [:facebook]
@@ -22,7 +24,7 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     existing_user = User.find_by(email: auth.info.email)
     if existing_user && existing_user.uid.nil?
-      existing_user.tap do |user |
+      existing_user.tap do |user|
         user.update(
           provider: auth.provider,
           uid: auth.uid,

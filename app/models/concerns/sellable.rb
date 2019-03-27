@@ -17,8 +17,4 @@ module Sellable
   def grand_opening?
     event_type == GRAND_OPENING
   end
-
-  def comment_count
-    comments.size
-  end
 end

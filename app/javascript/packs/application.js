@@ -10,3 +10,4 @@ require("channels")
 
 require("vendors/theme")
 require("vendors/svgspriteinject")
+require("vendors/map")

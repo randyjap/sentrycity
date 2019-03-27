@@ -1,6 +1,7 @@
 User.find_or_create_by(id: 1) do |u|
   u.password = 'password'
   u.email = 'randyjap@gmail.com'
+  u.name = 'Walt D'
 end
 
 goods = [
@@ -23,19 +24,19 @@ goods.each { |g| Good.find_or_create_by(name: g) }
     s.event_date = rand(2..8).days.ago
     s.district = 'Central'
     s.address = 'Unit 12B, 123 Fake Avenue, Central, Hong Kong'
-    s.lat = 1234.123456
-    s.lng = 1234.123456
+    s.lat = 22.282118
+    s.lng = 114.151063
     s.description = '70% off everything'
-    s.bhours_0 = '9:22'
-    s.bhours_1 = '9:22'
-    s.bhours_2 = '9:22'
-    s.bhours_3 = '9:22'
-    s.bhours_4 = '9:22'
-    s.bhours_5 = '9:22'
-    s.bhours_6 = '9:22'
-    s.bhours_7 = '9:22'
-    s.phone = '1234567890'
-    s.url = 'example'
+    s.bhours_0 = '8:00 am - 6:00 pm'
+    s.bhours_1 = '8:00 am - 6:00 pm'
+    s.bhours_2 = '8:00 am - 6:00 pm'
+    s.bhours_3 = '8:00 am - 6:00 pm'
+    s.bhours_4 = '8:00 am - 6:00 pm'
+    s.bhours_5 = '8:00 am - 6:00 pm'
+    s.bhours_6 = '8:00 am - 6:00 pm'
+    s.bhours_7 = '8:00 am - 6:00 pm'
+    s.phone = '123-456-7890'
+    s.url = 'www.example.com'
     s.state = 'active'
     s.user_id = 1
     s.goods = Good.all
@@ -51,19 +52,19 @@ end
     s.event_date = rand(2..8).days.from_now
     s.district = 'Central'
     s.address = 'Unit 1234, 123 Fake Corner, Causeway Bay, Hong Kong'
-    s.lat = 1234.123456
-    s.lng = 1234.123456
+    s.lat = 22.2821181
+    s.lng = 114.1510632
     s.description = '80% off everything'
-    s.bhours_0 = '9:22'
-    s.bhours_1 = '9:22'
-    s.bhours_2 = '9:22'
-    s.bhours_3 = '9:22'
-    s.bhours_4 = '9:22'
-    s.bhours_5 = '9:22'
-    s.bhours_6 = '9:22'
-    s.bhours_7 = '9:22'
-    s.phone = '1234567890'
-    s.url = 'example'
+    s.bhours_0 = '8:00 am - 6:00 pm'
+    s.bhours_1 = '8:00 am - 6:00 pm'
+    s.bhours_2 = '8:00 am - 6:00 pm'
+    s.bhours_3 = '8:00 am - 6:00 pm'
+    s.bhours_4 = '8:00 am - 6:00 pm'
+    s.bhours_5 = '8:00 am - 6:00 pm'
+    s.bhours_6 = '8:00 am - 6:00 pm'
+    s.bhours_7 = '8:00 am - 6:00 pm'
+    s.phone = '123-456-7890'
+    s.url = 'www.example.com'
     s.state = 'active'
     s.user_id = 1
     s.goods = Good.all
@@ -91,4 +92,25 @@ end
     votable: Store.find(i),
     vote: 1
   )
+end
+
+tag_names = [
+  'Fashion',
+  'Clothing',
+  'Electronics & Computers',
+  'Books',
+  'Pet Supplies',
+  'Baby',
+  'Beauty and Healthcare',
+  'Other'
+]
+
+tag_names.each do |tag_name|
+  Tag.find_or_create_by(
+    name: tag_name
+  )
+end
+
+(1..20).each do |i|
+  Store.find(i).tags = Tag.all.sample(rand(2..5))
 end

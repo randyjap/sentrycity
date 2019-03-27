@@ -1,0 +1,162 @@
+<!-- Hero Section-->
+<section style="background-image: url('<%= url_for(@store.photos.first) %>');" class="pt-7 pb-5 d-flex align-items-end dark-overlay bg-cover">
+  <div class="container overlay-content">
+    <div class="d-flex justify-content-between align-items-start flex-column flex-lg-row align-items-lg-end">
+      <div class="text-white mb-4 mb-lg-0">
+        <% @store.tags.each do |tag| %>
+          <div class="badge badge-pill badge-transparent px-3 py-2 mb-4"><%= tag.name %></div>
+        <% end %>
+        <h1 class="text-shadow verified"><%= @store.name %></h1>
+        <p><i class="fa-map-marker-alt fas mr-2"></i><%= @store.address %></p>
+        <p class="mb-0 d-flex align-items-center">
+          <%= @store.vote_count.to_s + ' ' + 'Point'.pluralize(@store.vote_count) %>
+          <a href="#" class="text-white px-1 text-hover-primary"><i class="fa fa-m fa-thumbs-up"></i></a>
+          <a href="#" class="text-white px-1 text-hover-primary"><i class="fa fa-m fa-thumbs-down"></i></a>
+        </p>
+      </div>
+      <div class="calltoactions"><a href="#leaveComment" onclick="$('#leaveComment').collapse('show')" data-smooth-scroll class="btn btn-primary">See Comments</a></div>
+    </div>
+  </div>
+</section>
+<section class="py-6">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <!-- About Listing-->
+        <div class="text-block">
+          <p class="text-muted"><%= @store.description %></p>
+        </div>
+        <div class="text-block">
+          <!-- Listing Location-->
+          <h3 class="mb-4">Location</h3>
+          <div class="map-wrapper-300 mb-3">
+            <div id="detailMap" class="h-100"></div>
+          </div>
+        </div>
+        <div class="text-block">
+          <!-- Gallery-->
+          <h3 class="mb-4">Gallery</h3>
+          <div class="row gallery ml-n1 mr-n1">
+            <% @store.photos.each do |photo| %>
+              <div class="col-lg-4 col-6 px-1 mb-2"><a href="<%= url_for(photo) %>"><%= image_tag(photo, class: "img-fluid") %></a></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="text-block">
+          <div id="leaveComment" class="mt-4">
+            <form id="contact-form" method="get" action="#" class="form">
+              <div class="form-group">
+                <label for="review" class="form-label">Comment</label>
+                <textarea rows="4" name="review" id="review" placeholder="Write here" required="required" class="form-control"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+          </div>
+          <% @store.comments.each do |comment| %>
+            <div class="media d-block d-sm-flex review">
+              <div class="media-body">
+                <%= comment.vote_count_message %> &#9632;  <%= distance_of_time_in_words_to_now(comment.created_at) %> ago
+                <p class="text-muted text-sm" style="min-height: 45px;"><%= comment.text %></p>
+                <div class="text-right">
+                  <a href="#" class="text-gray-00 text-sm"><i class="fa-plus fas"></i></a> <a href="#" class="text-gray-00 text-sm"><i class="fa-minus fas"></i></a>
+                </div>
+              </div>
+              <div class="text-md-left mx-4 mx-xl-5">
+                <h6 class="mt-2 mb-1"><%= comment.user.name %></h6>
+                <div><span class="text-uppercase text-xs"><%= distance_of_time_in_words_to_now(comment.user.created_at) %> ago</span></div>
+                <div><span class="text-uppercase text-xs"><%= comment.user.comment_vote_total %> Reputation</span></div>
+                <div><span class="text-uppercase text-xs"><%= comment.user.comment_count_message %></span></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="pl-xl-4">
+          <!-- Opening Hours      -->
+          <div class="card border-0 shadow mb-5">
+            <div class="card-header bg-gray-100 py-4 border-0">
+              <div class="media align-items-center">
+                <div class="media-body">
+                  <p class="subtitle text-sm text-primary">Opening in 5 minutes</p>
+                  <h4 class="mb-0">Opening Hours </h4>
+                </div>
+                <svg class="svg-icon svg-icon svg-icon-light w-3rem h-3rem ml-3 text-muted">
+                  <use xlink:href="#wall-clock-1"> </use>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <table class="table text-sm mb-0">
+                <tr>
+                  <th class="pl-0 border-0">Mondays</th>
+                  <td class="pr-0 text-right border-0"><%= @store.bhours_0 %></td>
+                </tr>
+                <tr>
+                  <th class="pl-0">Tuesdays</th>
+                  <td class="pr-0 text-right"><%= @store.bhours_1 %></td>
+                </tr>
+                <tr>
+                  <th class="pl-0">Wednesdays</th>
+                  <td class="pr-0 text-right"><%= @store.bhours_2 %></td>
+                </tr>
+                <tr>
+                  <th class="pl-0">Thursdays</th>
+                  <td class="pr-0 text-right"><%= @store.bhours_3 %></td>
+                </tr>
+                <tr>
+                  <th class="pl-0">Fridays</th>
+                  <td class="pr-0 text-right"><%= @store.bhours_4 %></td>
+                </tr>
+                <tr>
+                  <th class="pl-0">Saturdays</th>
+                  <td class="pr-0 text-right"><%= @store.bhours_5 %></td>
+                </tr>
+                <tr>
+                  <th class="pl-0">Sundays</th>
+                  <td class="pr-0 text-right"><%= @store.bhours_6 %></td>
+                </tr>
+                <tr>
+                  <th class="pl-0">Holidays</th>
+                  <td class="pr-0 text-right"><%= @store.bhours_7 %></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <!-- Contact-->
+          <div class="card border-0 shadow mb-5">
+            <div class="card-header bg-gray-100 py-4 border-0">
+              <div class="media align-items-center">
+                <div class="media-body">
+                  <p class="subtitle text-sm text-primary">Ask a question</p>
+                  <h4 class="mb-0">Contact</h4>
+                </div>
+                <svg class="svg-icon svg-icon svg-icon-light w-3rem h-3rem ml-3 text-muted">
+                  <use xlink:href="#telephone-operator-1"> </use>
+                </svg>
+              </div>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mb-4">
+                <li class="mb-2"> <a href="#" class="text-gray-00 text-sm text-decoration-none"><i class="fa fa-phone mr-3"></i><span class="text-muted"><%= @store.phone %></span></a></li>
+                <li class="mb-2"> <a href="#" class=" text-sm text-decoration-none"><i class="fa fa-globe mr-3"></i><span class="text-muted"><%= @store.url %></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="text-center">
+            <p><a href="#" class="text-secondary"> <i class="fa fa-heart"></i> Bookmark This Listing</a></p><span><%= @store.bookmark_count %> people bookmarked this place </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  createDetailMap({
+    mapId: 'detailMap',
+    mapCenter: [<%= @store.lat %>, <%= @store.lng %>],
+    markerShow: true,
+    markerPosition: [<%= @store.lat %>, <%= @store.lng %>],
+    markerPath: '/marker.svg',
+  })
+</script>
