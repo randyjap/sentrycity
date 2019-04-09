@@ -1,16 +1,6 @@
-import $ from "jquery"
+import { redirectIfLoggedOut } from '../vendors/shared/index';
 
-window.$ = $;
-window.custom = {};
-
-let redirectIfLoggedOut = () => {
-  if ($('#login-status').attr('data-logged-in') !== "true") {
-    window.location.href = "/users/sign_in";
-    return
-  }
-}
-
-window.custom.thumbsUp = (event, storeId) => {
+window.custom.sThumbsUp = (event, storeId) => {
   event.preventDefault();
   redirectIfLoggedOut();
 
@@ -20,7 +10,7 @@ window.custom.thumbsUp = (event, storeId) => {
     beforeSend: xhr => { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
     url: `/stores/${storeId}/store_vote`,
     method: "POST",
-    data: { vote: 1 },
+    data: { store_vote: { vote: 1 } },
   })
   .done((data) => {
     thumbsUp.removeClass('text-white');
@@ -32,7 +22,7 @@ window.custom.thumbsUp = (event, storeId) => {
   });
 };
 
-window.custom.thumbsDown = (event, storeId) => {
+window.custom.sThumbsDown = (event, storeId) => {
   event.preventDefault();
   redirectIfLoggedOut();
 
@@ -42,7 +32,7 @@ window.custom.thumbsDown = (event, storeId) => {
     beforeSend: xhr => { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
     url: `/stores/${storeId}/store_vote`,
     method: "POST",
-    data: { vote: -1},
+    data: { store_vote: { vote: -1 } },
   })
   .done((data) => {
     thumbsUp.removeClass('text-white');

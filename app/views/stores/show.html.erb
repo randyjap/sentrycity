@@ -1,4 +1,7 @@
-<%= javascript_pack_tag 'store-show' %>
+<%= javascript_pack_tag 'store-vote' %>
+<%= javascript_pack_tag 'comment-vote' %>
+<%= javascript_pack_tag 'comment' %>
+<%= javascript_pack_tag 'bookmark' %>
 
 <!-- Hero Section-->
 <section style="background-image: url('<%= url_for(@store.photos.first) %>');" class="pt-7 pb-5 d-flex align-items-end dark-overlay bg-cover">
@@ -43,12 +46,12 @@
         </div>
         <div class="text-block">
           <div id="leaveComment" class="mt-4">
-            <form id="contact-form" method="get" action="#" class="form">
+            <form id="comment-form" onSubmit="custom.comment(event, <%= @store.id %>)" class="form">
               <div class="form-group">
-                <label for="review" class="form-label">Comment</label>
-                <textarea rows="4" name="review" id="review" placeholder="Write here" required="required" class="form-control"></textarea>
+                <label for="text" class="form-label">Comment</label>
+                <textarea onKeyDown="if (event.keyCode === 13) { this.form.dispatchEvent(new Event('submit')); }" rows="4" name="text" id="text" placeholder="Write here" required="required" class="form-control"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Post</button>
+              <button type="submit" class="btn btn-primary">Post Comment</button>
             </form>
           </div>
           <%= render partial: 'comments', locals: { store: @store } %>
@@ -126,9 +129,7 @@
               </ul>
             </div>
           </div>
-          <div class="text-center">
-            <p><a href="#" class="text-secondary"> <i class="fa fa-heart"></i> Bookmark This Listing</a></p><span><%= @store.bookmark_count %> people bookmarked this place </span>
-          </div>
+          <%= render partial: 'bookmarks', locals: { store: @store } %>
         </div>
       </div>
     </div>

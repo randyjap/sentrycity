@@ -4,6 +4,12 @@ Rails.application.routes.draw do
 
   resources :stores do
     post 'store_vote', on: :member
+    post 'comments', on: :member
+    post 'bookmark', on: :member
+  end
+
+  resources :comments, only: [:destroy] do
+    post 'comment_vote', on: :member
   end
 
   resources :s, only: [:index]

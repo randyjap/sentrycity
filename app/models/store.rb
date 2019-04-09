@@ -39,7 +39,7 @@ class Store < ApplicationRecord
   belongs_to :district, inverse_of: :stores
   has_many :goods_stores, inverse_of: :store
   has_many :goods, through: :goods_stores
-  has_many :comments, inverse_of: :store
+  has_many :comments, -> { order("created_at DESC") }, inverse_of: :store
   has_many :bookmarks, inverse_of: :store
   has_many :votes, inverse_of: :votable, as: :votable
   has_many :stores_tags, inverse_of: :store

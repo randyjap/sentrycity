@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
   def show
-    @store = Store.find(params[:id])
+    @store = Store.includes(comments: :user).find(params[:id])
     @vote_count = @store.vote_count
   end
 
@@ -17,16 +17,23 @@ class StoresController < ApplicationController
 
   def comments
     @new_store = Store.find(params[:id])
+    comment = Comment.new(comment_params)
+    comment.user = current_user
+    @new_store.comments << comment
+  end
 
+  def bookmark
+    @new_store = Store.find(params[:id])
+    @new_store.bookmark_toggle(current_user.id)
   end
 
   private
 
   def vote_params
-    params.permit(:id, :vote)
+    params.require(:store_vote).permit(:vote)
   end
 
   def comment_params
-    params.permit(:id, :comment)
+    params.require(:comment).permit(:text)
   end
 end

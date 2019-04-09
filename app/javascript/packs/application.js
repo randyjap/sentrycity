@@ -11,3 +11,6 @@ require("channels")
 require("vendors/theme")
 require("vendors/svgspriteinject")
 require("vendors/map")
+require("vendors/shared")
+
+window.custom = {};
