@@ -36,6 +36,12 @@
 
   <body>
     <header>
+      <% if current_user %>
+        <div id='login-status' data-logged-in="true">
+      <% else %>
+        <div id='login-status' data-logged-in="false">
+      <% end %>
+
       <%= render "shared/flash_messages" %>
       <%= render "shared/signin_modal" %>
       <%= render "shared/navbar" %>

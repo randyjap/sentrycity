@@ -1,7 +1,18 @@
 class WelcomeController < ApplicationController
   def index
-    all_stores = Store.active.includes(:votes, :comments).with_attached_photos
-    @farewell_stores = all_stores.select(&:farewell_sale?)
-    @grand_openings = all_stores.select(&:grand_opening?)
+    @farewell_stores =
+      Store.
+      active.
+      includes(:votes, :comments).
+      with_attached_photos.
+      where(event_type: 'Farewell Sale').
+      limit(30)
+    @grand_openings =
+      Store.
+        active.
+        includes(:votes, :comments).
+        with_attached_photos.
+        where(event_type: 'Grand Opening').
+        limit(30)
   end
 end

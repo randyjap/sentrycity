@@ -1,0 +1,6 @@
+<div id="store-votes">
+  <p class="mb-0 d-flex align-items-center"></p>
+  <div><%= vote_count.to_s %> <%= 'Point'.pluralize(vote_count) %></div>
+  <a id="thumbs-up" onClick="custom.thumbsUp(event, <%= store.id %>)" class="text-<%= store.up_voted?(current_user) ? "primary" : "white" %> px-1 text-hover-primary"><i class="fa fa-m fa-thumbs-up"></i></a>
+  <a id="thumbs-down" onClick="custom.thumbsDown(event, <%= store.id %>)" data-store-id="<%= store.id %>" class="text-<%= store.down_voted?(current_user) ? "primary" : "white" %> px-1 text-hover-primary"><i class="fa fa-m fa-thumbs-down"></i></a>
+</div>
