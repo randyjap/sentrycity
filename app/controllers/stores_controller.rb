@@ -15,9 +15,18 @@ class StoresController < ApplicationController
     @new_vote_count = @new_store.vote_count
   end
 
+  def comments
+    @new_store = Store.find(params[:id])
+
+  end
+
   private
 
   def vote_params
     params.permit(:id, :vote)
+  end
+
+  def comment_params
+    params.permit(:id, :comment)
   end
 end

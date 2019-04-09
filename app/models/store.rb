@@ -1,3 +1,33 @@
+# == Schema Information
+#
+# Table name: stores
+#
+#  id          :bigint(8)        not null, primary key
+#  name        :string(255)      not null
+#  event_type  :string(255)      not null
+#  event_date  :datetime         not null
+#  address     :string(255)      not null
+#  lat         :decimal(10, 6)   not null
+#  lng         :decimal(10, 6)   not null
+#  description :text(65535)
+#  bhours_0    :string(255)
+#  bhours_1    :string(255)
+#  bhours_2    :string(255)
+#  bhours_3    :string(255)
+#  bhours_4    :string(255)
+#  bhours_5    :string(255)
+#  bhours_6    :string(255)
+#  bhours_7    :string(255)
+#  phone       :string(255)
+#  url         :text(65535)
+#  state       :string(255)      default("draft"), not null
+#  user_id     :bigint(8)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  discount    :string(255)
+#  district_id :bigint(8)
+#
+
 class Store < ApplicationRecord
   include Votable
   include Sellable
