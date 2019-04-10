@@ -6,6 +6,8 @@ import bootstrapSelect from "bootstrap-select"
 import objectFitImages from "object-fit-images"
 import Swiper from "swiper"
 
+window.$ = $;
+
 /*!
  *
  * Directory Theme 1.0.0
@@ -364,13 +366,10 @@ let applyTheme = () => {
   objectFitImages();
 }
 
-window.$ = $;
-
-
-$(document).bind("ajaxSuccess", function(){
+$(document).on("ajaxSuccess", () => {
   applyTheme();
-})
+});
 
-$(document).on("turbolinks:load", function () {
+$(document).ready(() => {
   applyTheme();
 });
