@@ -1,3 +1,1 @@
-<div id="bookmarks" class="text-center">
-  <p><a href="" onClick="custom.bookmark(event, <%= store.id %>)" class="<%= current_user && store.has_bookmarked?(current_user.id) ? "text-secondary" : "text-gray-00" %>"> <i class="fa fa-heart"></i> <%= current_user && store.has_bookmarked?(current_user.id) ? "Bookmark Saved!" : "Bookmark This Listing" %></a></p><span><%= store.bookmark_count %> people bookmarked this place </span>
-</div>
+<p><a href="" onClick="custom.bookmark(event, <%= store.id %>)" class="<%= current_user && store.has_bookmarked?(current_user.id) ? "text-secondary" : "text-gray-00" %>"> <i class="fa fa-heart"></i> <%= current_user && store.has_bookmarked?(current_user.id) ? "Bookmark Saved!" : "Bookmark This Listing" %></a></p><span><%= store.bookmark_count %> people bookmarked this place </span>

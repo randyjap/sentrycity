@@ -1,0 +1,36 @@
+<% District.all.each do |district| %>
+  <% next if stores[district.name].nil? %>
+  <!-- Slider main container-->
+  <h1 class="display-5 font-weight-bold text-serif"><%= district.name %></h1>
+  <p class="mb-3 mb-md-0"><strong><%= stores[district.name].size %></strong> results found</p>
+  <div data-swiper="{&quot;slidesPerView&quot;:3,&quot;spaceBetween&quot;:20,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}" class="swiper-container swiper-container-mx-negative swiper-init">
+    <!-- Additional required wrapper-->
+    <div class="swiper-wrapper pb-5">
+      <!-- Slides-->
+      <% stores[district.name].each do |store| %>
+        <div class="swiper-slide h-auto px-2">
+          <div data-marker-id="<%= store.id.hash %>" class="w-100 h-100">
+            <div class="card h-100 border-0 shadow">
+              <div class="ribbon ribbon-<%= store.grand_opening? ? "primary" : "secondary" %>"><%= store.discount %>% Off Sale</div>
+              <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><%= link_to("", store, class: "tile-link") %>
+              <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count_message %> - <%= store.comment_count_message %></div>
+            </div>
+            <div class="card-body d-flex align-items-center">
+              <div class="w-100">
+                <h6 class="card-title"><%= link_to(store.name, store, class: "text-decoration-none text-dark") %></h6>
+                <div class="d-flex card-subtitle mb-3">
+                  <p class="flex-grow-1 mb-0 text-muted text-sm"><i class="fa-map-marker-alt fas mr-2"></i><%= store.address %></p>
+                </div>
+                <p class="card-text h6 text-primary"><%= distance_of_time_in_words_to_now(store.event_date) %> left!</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <!-- If we need pagination-->
+    <div class="swiper-pagination"></div>
+  </div>
+  <!-- Slider main container-->
+<% end %>

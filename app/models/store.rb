@@ -29,10 +29,19 @@
 #
 
 class Store < ApplicationRecord
+  FAREWELL = 'Farewell Sale'
+  GRAND_OPENING = 'Grand Opening'
+
   include Votable
   include Sellable
   include Commentable
   include Bookmarkable
+  include Filterable
+
+  scope :search_text, -> (search_text) { where("stores.name LIKE ?", "%#{sanitize_sql_like(search_text)}%") }
+  scope :district_ids, -> (district_ids) { where(district_id: district_ids) }
+  scope :tag_ids, -> (tag_ids) { includes(:tags).where(tags: { id: tag_ids }) }
+  scope :event_types, -> (event_types) { where(event_type: event_types) }
 
   has_many_attached :photos
   belongs_to :user, inverse_of: :stores
@@ -44,4 +53,12 @@ class Store < ApplicationRecord
   has_many :votes, inverse_of: :votable, as: :votable
   has_many :stores_tags, inverse_of: :store
   has_many :tags, through: :stores_tags
+
+  def farewell_sale?
+    self.event_type == FAREWELL
+  end
+
+  def grand_opening?
+    self.event_type == GRAND_OPENING
+  end
 end

@@ -1,25 +1,23 @@
-<div id="comments">
-  <% store.comments.each do |comment| %>
-    <div class="media d-block d-sm-flex review">
-      <div class="media-body">
-        <%= comment.vote_count_message %> &#9632;  <%= distance_of_time_in_words_to_now(comment.created_at) %> ago
-        <p class="text-muted text-sm" style="min-height: 45px;"><%= comment.text %></p>
-        <div class="text-right">
-          <p>
-            <a onClick="custom.cThumbsUp(event, <%= comment.id %>)" class="<%= comment.up_voted?(current_user) ? "text-gray-00" : "text-primary" %> text-sm"><i class="fa-plus fas"></i></a>
-            <a onClick="custom.cThumbsDown(event, <%= comment.id %>)" class="<%= comment.down_voted?(current_user) ? "text-gray-00" : "text-primary" %> text-sm"><i class="fa-minus fas"></i></a>
-          </p>
-          <% if current_user && current_user.id == comment.user.id %>
-            <div onClick="custom.deleteComment(event, <%= comment.id %>)" class="text-uppercase text-xs btn btn-sm btn-warning" style="">Delete Comment</div>
-          <% end %>
-        </div>
-      </div>
-      <div class="text-md-left mx-4 mx-xl-5">
-        <h6 class="mt-2 mb-1"><%= comment.user.name %></h6>
-        <div><span class="text-uppercase text-xs"><%= distance_of_time_in_words_to_now(comment.user.created_at) %> ago</span></div>
-        <div><span class="text-uppercase text-xs"><%= comment.user.comment_vote_total %> Reputation</span></div>
-        <div><span class="text-uppercase text-xs"><%= comment.user.comment_count_message %></span></div>
+<% store.comments.each do |comment| %>
+  <div class="media d-block d-sm-flex review">
+    <div class="media-body">
+      <%= comment.vote_count_message %> &#9632;  <%= distance_of_time_in_words_to_now(comment.created_at) %> ago
+      <p class="text-muted text-sm" style="min-height: 45px;"><%= comment.text %></p>
+      <div class="text-right">
+        <p>
+          <a onClick="custom.cThumbsUp(event, <%= comment.id %>)" class="<%= comment.up_voted?(current_user) ? "text-gray-00" : "text-primary" %> text-sm"><i class="fa-plus fas"></i></a>
+          <a onClick="custom.cThumbsDown(event, <%= comment.id %>)" class="<%= comment.down_voted?(current_user) ? "text-gray-00" : "text-primary" %> text-sm"><i class="fa-minus fas"></i></a>
+        </p>
+        <% if current_user && current_user.id == comment.user.id %>
+          <div onClick="custom.deleteComment(event, <%= comment.id %>)" class="text-uppercase text-xs btn btn-sm btn-warning" style="">Delete Comment</div>
+        <% end %>
       </div>
     </div>
-  <% end %>
-</div>
+    <div class="text-md-left mx-4 mx-xl-5">
+      <h6 class="mt-2 mb-1"><%= comment.user.name %></h6>
+      <div><span class="text-uppercase text-xs"><%= distance_of_time_in_words_to_now(comment.user.created_at) %> ago</span></div>
+      <div><span class="text-uppercase text-xs"><%= comment.user.comment_vote_total %> Reputation</span></div>
+      <div><span class="text-uppercase text-xs"><%= comment.user.comment_count_message %></span></div>
+    </div>
+  </div>
+<% end %>

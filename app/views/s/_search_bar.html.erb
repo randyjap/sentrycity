@@ -1,0 +1,52 @@
+<div class="col-lg-3 pt-3">
+  <form id="search-form" onSubmit="custom.search(event)" class="pr-xl-3">
+    <div class="mb-4">
+      <label for="form_search" class="form-label">Store</label>
+      <div class="input-label-absolute input-label-absolute-right">
+        <div class="label-absolute"></div>
+        <input type="search" value="<%= @params[:search_text] %>" name="search_params[search_text]" placeholder="Name" id="form_search" class="form-control pr-4">
+      </div>
+    </div>
+    <div class="mb-4">
+      <label for="form_neighbourhood" class="form-label">Districts</label>
+      <select name="search_params[district_ids][]" id="form_neighbourhood" multiple data-style="btn-selectpicker" data-live-search="true" data-selected-text-format="count &gt; 1" title="" class="selectpicker form-control">
+        <% District.all.each do |district| %>
+          <option <%= @params[:district_ids] && @params[:district_ids].include?(district.id.to_s) ? "selected" : "" %> value="<%= district.id %>"><%= district.name %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="mb-4">
+      <label class="form-label">Goods</label>
+      <ul class="list-unstyled mb-0">
+        <% Tag.all.each do |tag| %>
+          <li>
+            <div class="custom-control custom-checkbox">
+              <input <%= @params[:tag_ids] && @params[:tag_ids].include?(tag.id.to_s) ? "checked" : "" %> value="<%= tag.id %>" type="checkbox" id="tag_name_<%= tag.name.downcase %>" name="search_params[tag_ids][]" class="custom-control-input">
+              <label for="tag_name_<%= tag.name.downcase %>" class="custom-control-label"><%= tag.name %></label>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <label class="form-label">Sale</label>
+      <ul class="list-unstyled mb-0">
+        <li>
+          <div class="custom-control custom-checkbox">
+            <input <%= @params[:event_types] && @params[:event_types].include?("Farewell Sale") ? "checked" : "" %> value="Farewell Sale" type="checkbox" id="event_type_00" name="search_params[event_types][]" class="custom-control-input">
+            <label for="event_type_00" class="custom-control-label">Farewell Sale</label>
+          </div>
+        </li>
+        <li>
+          <div class="custom-control custom-checkbox">
+            <input <%= @params[:event_types] && @params[:event_types].include?("Grand Opening") ? "checked" : "" %> value="Grand Opening" type="checkbox" id="event_type_01" name="search_params[event_types][]" class="custom-control-input">
+            <label for="event_type_01" class="custom-control-label">Grand Opening</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="mb-4">
+      <button type="submit" class="btn btn-primary"> <i class="fas fa-search mr-1"></i>Kazaam</button>
+    </div>
+  </form>
+</div>

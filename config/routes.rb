@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :s, only: [:index]
+  post 's', to: 's#search'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 end

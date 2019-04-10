@@ -13,9 +13,11 @@
         <% end %>
         <h1 class="text-shadow verified"><%= @store.name %></h1>
         <p><i class="fa-map-marker-alt fas mr-2"></i><%= @store.address %></p>
-        <%= render partial: 'store_votes', locals: { store: @store, vote_count: @vote_count } %>
+        <div id="store-votes">
+          <%= render partial: 'store_votes', locals: { store: @store, vote_count: @vote_count } %>
+        </div>
       </div>
-      <div class="calltoactions"><a href="#leaveComment" onclick="$('#leaveComment').collapse('show')" data-smooth-scroll class="btn btn-primary">See Comments</a></div>
+      <div class="calltoactions"><a href="#leaveComment" data-smooth-scroll class="btn btn-primary">See Comments</a></div>
     </div>
   </div>
 </section>
@@ -54,7 +56,9 @@
               <button type="submit" class="btn btn-primary">Post Comment</button>
             </form>
           </div>
-          <%= render partial: 'comments', locals: { store: @store } %>
+          <div id="comments">
+            <%= render partial: 'comments', locals: { store: @store } %>
+          </div>
         </div>
       </div>
       <div class="col-lg-4">
@@ -129,7 +133,9 @@
               </ul>
             </div>
           </div>
-          <%= render partial: 'bookmarks', locals: { store: @store } %>
+          <div id="bookmarks" class="text-center">
+            <%= render partial: 'bookmarks', locals: { store: @store } %>
+          </div>
         </div>
       </div>
     </div>

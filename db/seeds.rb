@@ -122,8 +122,8 @@ goods.each { |g| Good.find_or_create_by(name: g) }
     s.event_date = rand(2..8).days.ago
     s.district = District.order("RAND()").limit(1).first
     s.address = 'Unit 12B, 123 Fake Avenue, Central, Hong Kong'
-    s.lat = 22.282118
-    s.lng = 114.151063
+    s.lat = 22.282118 + rand(-0.05..0.05)
+    s.lng = 114.151063 + rand(-0.05..0.05)
     s.description = '70% off everything'
     s.bhours_0 = '8:00 am - 6:00 pm'
     s.bhours_1 = '8:00 am - 6:00 pm'
@@ -150,8 +150,8 @@ end
     s.event_date = rand(2..8).days.from_now
     s.district = District.order("RAND()").limit(1).first
     s.address = 'Unit 1234, 123 Fake Corner, Causeway Bay, Hong Kong'
-    s.lat = 22.2821181
-    s.lng = 114.1510632
+    s.lat = 22.282118 + rand(-0.05..0.05)
+    s.lng = 114.151063 + rand(-0.05..0.05)
     s.description = '80% off everything'
     s.bhours_0 = '8:00 am - 6:00 pm'
     s.bhours_1 = '8:00 am - 6:00 pm'
