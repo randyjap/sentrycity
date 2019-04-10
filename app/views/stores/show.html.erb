@@ -51,7 +51,7 @@
             <form id="comment-form" onSubmit="custom.comment(event, <%= @store.id %>)" class="form">
               <div class="form-group">
                 <label for="text" class="form-label">Comment</label>
-                <textarea onKeyDown="if (event.keyCode === 13) { this.form.dispatchEvent(new Event('submit')); }" rows="4" name="text" id="text" placeholder="Write here" required="required" class="form-control"></textarea>
+                <textarea onKeyDown="if (event.keyCode === 13) { this.form.dispatchEvent(new Event('submit')); }" rows="4" name="comment[text]" id="text" placeholder="Write here" required="required" class="form-control"></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Post Comment</button>
             </form>

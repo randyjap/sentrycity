@@ -1,16 +1,16 @@
-import { redirectIfLoggedOut, convertToJson } from '../vendors/shared/index';
+import { redirectIfLoggedOut } from '../vendors/shared/index';
 
 window.custom.comment = (event, storeId) => {
   event.preventDefault();
   redirectIfLoggedOut();
 
-  let payload = convertToJson($('#comment-form'));
+  let params = $('#comment-form').serialize();
 
   $.ajax({
     beforeSend: xhr => { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
     url: `/stores/${storeId}/comments`,
     method: "POST",
-    data: { comment: payload },
+    data: params,
   })
   .done((data) => {
     $('#comment-form')[0].reset();
