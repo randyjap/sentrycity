@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   resources :s, only: [:index]
   post 's', to: 's#search'
+  resources :photo_uploads, only: [:create, :destroy]
+  get 'create-a-store', to: 'stores#create_a_store'
+  put 'create-a-store', to: 'stores#update_create_a_store'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 end

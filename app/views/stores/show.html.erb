@@ -14,7 +14,7 @@
         <h1 class="text-shadow verified"><%= @store.name %></h1>
         <p><i class="fa-map-marker-alt fas mr-2"></i><%= @store.address %></p>
         <div id="store-votes">
-          <%= render partial: 'store_votes', locals: { store: @store, vote_count: @vote_count } %>
+          <%= render partial: 'stores/show/store_votes', locals: { store: @store, vote_count: @vote_count } %>
         </div>
       </div>
       <div class="calltoactions"><a href="#leaveComment" data-smooth-scroll class="btn btn-primary">See Comments</a></div>
@@ -57,7 +57,7 @@
             </form>
           </div>
           <div id="comments">
-            <%= render partial: 'comments', locals: { store: @store } %>
+            <%= render partial: 'stores/show/comments', locals: { store: @store } %>
           </div>
         </div>
       </div>
@@ -80,35 +80,35 @@
               <table class="table text-sm mb-0">
                 <tr>
                   <th class="pl-0 border-0">Mondays</th>
-                  <td class="pr-0 text-right border-0"><%= @store.bhours_0 %></td>
+                  <td class="pr-0 text-right border-0"><%= Store.format_bhours(@store.bhours_0) %></td>
                 </tr>
                 <tr>
                   <th class="pl-0">Tuesdays</th>
-                  <td class="pr-0 text-right"><%= @store.bhours_1 %></td>
+                  <td class="pr-0 text-right"><%= Store.format_bhours(@store.bhours_1) %></td>
                 </tr>
                 <tr>
                   <th class="pl-0">Wednesdays</th>
-                  <td class="pr-0 text-right"><%= @store.bhours_2 %></td>
+                  <td class="pr-0 text-right"><%= Store.format_bhours(@store.bhours_2) %></td>
                 </tr>
                 <tr>
                   <th class="pl-0">Thursdays</th>
-                  <td class="pr-0 text-right"><%= @store.bhours_3 %></td>
+                  <td class="pr-0 text-right"><%= Store.format_bhours(@store.bhours_3) %></td>
                 </tr>
                 <tr>
                   <th class="pl-0">Fridays</th>
-                  <td class="pr-0 text-right"><%= @store.bhours_4 %></td>
+                  <td class="pr-0 text-right"><%= Store.format_bhours(@store.bhours_4) %></td>
                 </tr>
                 <tr>
                   <th class="pl-0">Saturdays</th>
-                  <td class="pr-0 text-right"><%= @store.bhours_5 %></td>
+                  <td class="pr-0 text-right"><%= Store.format_bhours(@store.bhours_5) %></td>
                 </tr>
                 <tr>
                   <th class="pl-0">Sundays</th>
-                  <td class="pr-0 text-right"><%= @store.bhours_6 %></td>
+                  <td class="pr-0 text-right"><%= Store.format_bhours(@store.bhours_6) %></td>
                 </tr>
                 <tr>
                   <th class="pl-0">Holidays</th>
-                  <td class="pr-0 text-right"><%= @store.bhours_7 %></td>
+                  <td class="pr-0 text-right"><%= Store.format_bhours(@store.bhours_7) %></td>
                 </tr>
               </table>
             </div>
@@ -134,7 +134,7 @@
             </div>
           </div>
           <div id="bookmarks" class="text-center">
-            <%= render partial: 'bookmarks', locals: { store: @store } %>
+            <%= render partial: 'stores/show/bookmarks', locals: { store: @store } %>
           </div>
         </div>
       </div>

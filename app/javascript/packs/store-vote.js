@@ -2,7 +2,7 @@ import { redirectIfLoggedOut } from '../vendors/shared/index';
 
 window.custom.sThumbsUp = (event, storeId) => {
   event.preventDefault();
-  redirectIfLoggedOut();
+  if (redirectIfLoggedOut()) return;
 
   let thumbsUp = $('#thumbs-up');
   let points = $('#points');

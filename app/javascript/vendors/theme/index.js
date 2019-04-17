@@ -22,15 +22,15 @@ let applyTheme = () => {
     //   Lightbox in galleries
     // ------------------------------------------------------ //
 
-    $('.slider-gallery').each(function () { // the containers for all your galleries
-      $(this).magnificPopup({
-        delegate: 'a', // the selector for gallery item
-        type: 'image',
-        gallery: {
-          enabled: true,
-          tCounter: '' // markup of counter
-        }
-      });
+  $('.slider-gallery').each(function () { // the containers for all your galleries
+    $(this).magnificPopup({
+      delegate: 'a', // the selector for gallery item
+      type: 'image',
+      gallery: {
+        enabled: true,
+        tCounter: '' // markup of counter
+      }
+    });
   });
 
   $('.gallery').each(function () { // the containers for all your galleries
@@ -54,7 +54,6 @@ let applyTheme = () => {
     setTimeout(function () {
       $('.input-reset .form-control').parents('.input-reset').removeClass('focus');
     }, 333);
-
   });
 
 
@@ -366,9 +365,7 @@ let applyTheme = () => {
   objectFitImages();
 }
 
-$(document).on("ajaxSuccess", () => {
-  applyTheme();
-});
+window.custom.applyTheme = applyTheme;
 
 $(document).ready(() => {
   applyTheme();

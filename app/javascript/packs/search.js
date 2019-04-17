@@ -9,7 +9,8 @@ window.custom.search = (event) => {
     method: "POST",
     data: params,
   })
-  .done((data) => {
+  .done(() => {
+    custom.applyTheme();
   })
   .fail(() => {
   })

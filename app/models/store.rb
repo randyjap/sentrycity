@@ -45,7 +45,7 @@ class Store < ApplicationRecord
 
   has_many_attached :photos
   belongs_to :user, inverse_of: :stores
-  belongs_to :district, inverse_of: :stores
+  belongs_to :district, inverse_of: :stores, optional: true
   has_many :goods_stores, inverse_of: :store
   has_many :goods, through: :goods_stores
   has_many :comments, -> { order("created_at DESC") }, inverse_of: :store
@@ -60,5 +60,12 @@ class Store < ApplicationRecord
 
   def grand_opening?
     self.event_type == GRAND_OPENING
+  end
+
+  def self.format_bhours(original_hours)
+    open, close = original_hours.split(';')
+    open = open + ':00'
+    close = close + ':00'
+    open + ' - ' + close
   end
 end

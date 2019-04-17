@@ -2,7 +2,7 @@ import { redirectIfLoggedOut } from '../vendors/shared/index';
 
 window.custom.comment = (event, storeId) => {
   event.preventDefault();
-  redirectIfLoggedOut();
+  if (redirectIfLoggedOut()) return;
 
   let params = $('#comment-form').serialize();
 
