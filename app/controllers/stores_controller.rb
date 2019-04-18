@@ -6,14 +6,8 @@ class StoresController < ApplicationController
     @new_store.bookmark_toggle(current_user.id)
   end
 
-  def create
-    Store.find_or_create_by(state: 'draft', user: current_user)
-    @template_no = 1
-    render json: { redirect: '/create-a-store' }
-  end
-
   def create_a_store
-    @store = Store.find_by(user: current_user, state: 'draft')
+    @store = Store.find_or_create_by(user: current_user, state: 'draft')
     step = params[:step].nil? ? 0 : params[:step].to_i - 1
     @template_no = [1, 2, 3, 4, 5][step]
   end
@@ -21,7 +15,7 @@ class StoresController < ApplicationController
   def update_create_a_store
     @store = Store.find_by(user: current_user, state: 'draft')
     @store.update(update_store_params)
-    @store.update(state: 'active') if fin_store_params[:finished] == 'true'
+    @store.update(state: 'active') if params[:finished] == 'true'
   end
 
   def comments
@@ -57,12 +51,6 @@ class StoresController < ApplicationController
     params.require(:comment).permit(:text)
   end
 
-  def fin_store_params
-    params.
-      require(:store_params).
-      permit(:finished)
-  end
-
   def update_store_params
     params.
       require(:store_params).
@@ -84,6 +72,8 @@ class StoresController < ApplicationController
         :bhours_7,
         :phone,
         :url,
+        :lat,
+        :lng,
         tag_ids: []
       )
   end

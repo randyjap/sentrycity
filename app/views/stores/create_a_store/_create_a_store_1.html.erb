@@ -1,3 +1,44 @@
+<style>
+  /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+  #map {
+    height: 300px;
+    width: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+
+  #infowindow-content .title {
+    font-weight: bold;
+  }
+
+  #infowindow-content {
+    display: none;
+  }
+
+  #map #infowindow-content {
+    display: inline;
+  }
+
+  #pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+  }
+
+  #pac-input {
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+  }
+
+  #pac-input:focus {
+    border-color: #4d90fe;
+  }
+</style>
+
 <div style="height: 8px; top: 71px;" class="progress rounded-0">
   <div role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" class="progress-bar"></div>
 </div>
@@ -15,11 +56,11 @@
           <div class="form-group">
             <label class="form-label">Is this a Grand Opening or Farewell Sale?</label>
             <div class="custom-control custom-radio">
-              <input value="Farewell Sale" <%= store.event_type == "Farewell Sale" ? "checked" : "" %> type="radio" id="event-type-farewell-sale" name="store_params[event_type]" class="custom-control-input">
+              <input value="Farewell Sale" <%= store.event_type && store.event_type == "Farewell Sale" ? "checked" : "" %> type="radio" id="event-type-farewell-sale" name="store_params[event_type]" class="custom-control-input">
               <label for="event-type-farewell-sale" class="custom-control-label">Farewell Sale</label>
             </div>
             <div class="custom-control custom-radio">
-              <input value="Grand Opening" <%= store.event_type == "Grand Opening" ? "checked" : "" %> type="radio" id="event-type-grand-opening" name="store_params[event_type]" class="custom-control-input">
+              <input value="Grand Opening" <%= store.event_type && store.event_type == "Grand Opening" ? "checked" : "" %> type="radio" id="event-type-grand-opening" name="store_params[event_type]" class="custom-control-input">
               <label for="event-type-grand-opening" class="custom-control-label">Grand Opening</label>
             </div>
           </div>
@@ -51,9 +92,18 @@
           <!-- Address-->
           <div class="form-group">
             <label for="address" class="form-label">Address</label>
-            <input value="<%= store.address %>" name="store_params[address]" id="address" class="form-control">
+            <input style="margin: 0;" value="<%= store.address %>" name="store_params[address]" id="pac-input" class="form-control" type="text">
+            <input type="hidden" id="lat" name="store_params[lat]" value="<%= store.lat %>">
+            <input type="hidden" id="lng" name="store_params[lng]" value="<%= store.lng %>">
           </div>
         </div>
+      </div>
+      <!-- Map -->
+      <div id="map"></div>
+      <div id="infowindow-content">
+        <img src="" width="16" height="16" id="place-icon">
+        <span id="place-name"  class="title"></span><br>
+        <span id="place-address"></span>
       </div>
       <div class="row form-block flex-column flex-sm-row">
         <div class="col text-center text-sm-left"></div>
@@ -62,3 +112,115 @@
     </form>
   </div>
 </section>
+
+<script>
+  // This example requires the Places library. Include the libraries=places
+  // parameter when you first load the API. For example:
+  // <script src="https://maps.googleapis.com/maps/api/js?key=YOURKEY&libraries=places">
+
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: <%= store.lat || 22.277162 %>, lng: <%= store.lng || 114.1712311 %>},
+      zoom: 16,
+      disableDefaultUI: true,
+      gestureHandling: 'none',
+      zoomControl: false
+    });
+    var input = document.getElementById('pac-input');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+
+    // Bind the map's bounds (viewport) property to the autocomplete object,
+    // so that the autocomplete requests use the current map bounds for the
+    // bounds option in the request.
+    autocomplete.bindTo('bounds', map);
+
+    // Set the data fields to return when the user selects a place.
+    autocomplete.setFields(
+        ['address_components', 'geometry', 'icon', 'name']);
+
+    var infowindow = new google.maps.InfoWindow();
+    var infowindowContent = document.getElementById('infowindow-content');
+    infowindow.setContent(infowindowContent);
+    var marker = new google.maps.Marker({
+      map: map,
+      anchorPoint: new google.maps.Point(0, -29)
+    });
+
+
+    if (input.value !== '') {
+      var request = {
+        query: input.value,
+        fields: ['geometry', 'icon', 'name']
+      };
+
+      var service = new google.maps.places.PlacesService(map);
+
+      service.findPlaceFromQuery(request, function(results, status) {
+        var place = results[0];
+        if (!place.geometry) {
+          // User entered the name of a Place that was not suggested and
+          // pressed the Enter key, or the Place Details request failed.
+          window.alert("No details available for input: '" + place.name + "'");
+          return;
+        }
+
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+          map.fitBounds(place.geometry.viewport);
+        } else {
+          map.setCenter(place.geometry.location);
+          map.setZoom(17);  // Why 17? Because it looks good.
+        }
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
+
+        infowindowContent.children['place-icon'].src = place.icon;
+        infowindowContent.children['place-name'].textContent = place.name;
+        infowindowContent.children['place-address'].textContent = input.value;
+        infowindow.open(map, marker);
+      });
+    }
+
+    google.maps.event.trigger(autocomplete, 'place_changed')
+
+    autocomplete.addListener('place_changed', function() {
+      infowindow.close();
+      marker.setVisible(false);
+      var place = autocomplete.getPlace();
+      console.log(place)
+      $('input[name="store_params[lat]"').val(place.geometry.location.lat());
+      $('input[name="store_params[lng]"').val(place.geometry.location.lng());
+      if (!place.geometry) {
+        // User entered the name of a Place that was not suggested and
+        // pressed the Enter key, or the Place Details request failed.
+        window.alert("No details available for input: '" + place.name + "'");
+        return;
+      }
+
+      // If the place has a geometry, then present it on a map.
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport);
+      } else {
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);  // Why 17? Because it looks good.
+      }
+      marker.setPosition(place.geometry.location);
+      marker.setVisible(true);
+
+      var address = '';
+      if (place.address_components) {
+        address = [
+          (place.address_components[0] && place.address_components[0].short_name || ''),
+          (place.address_components[1] && place.address_components[1].short_name || ''),
+          (place.address_components[2] && place.address_components[2].short_name || '')
+        ].join(' ');
+      }
+
+      infowindowContent.children['place-icon'].src = place.icon;
+      infowindowContent.children['place-name'].textContent = place.name;
+      infowindowContent.children['place-address'].textContent = address;
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:key] %>&libraries=places&callback=initMap" async defer></script>
