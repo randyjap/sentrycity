@@ -115,7 +115,7 @@ goods = [
 
 goods.each { |g| Good.find_or_create_by(name: g) }
 
-(1..100).each do |i|
+(1..25).each do |i|
   Store.find_or_create_by(id: i) do |s|
     s.name = 'Pandora ' + i.to_s
     s.event_type = 'Grand Opening'
@@ -143,7 +143,7 @@ goods.each { |g| Good.find_or_create_by(name: g) }
   end
 end
 
-(101..200).each do |i|
+(26..50).each do |i|
   Store.find_or_create_by(id: i) do |s|
     s.name = 'Planet Sales ' + i.to_s
     s.event_type = 'Farewell Sale'
@@ -171,7 +171,7 @@ end
   end
 end
 
-400.times do
+10.times do
   Comment.create do |c|
     c.text = 'Hello world'
     c.user_id = 1
@@ -179,7 +179,7 @@ end
   end
 end
 
-(1..200).each do |i|
+(1..50).each do |i|
   Vote.find_or_create_by(
     user_id: 1,
     votable: Store.find(i),
@@ -209,7 +209,7 @@ tag_names.each do |tag_name|
   )
 end
 
-(1..200).each do |i|
+(1..50).each do |i|
   Store.find(i).tags = Tag.all.sample(rand(2..5))
 end
 
