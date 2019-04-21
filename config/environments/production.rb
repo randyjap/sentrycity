@@ -67,7 +67,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # Specifies host for URLs generated in mailer views
-  config.action_mailer.default_url_options = { host: 'sentry-city.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://sentry-city.herokuapp.com' }
 
   # Mail Credentials
   config.action_mailer.smtp_settings = {
