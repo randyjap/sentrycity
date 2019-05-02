@@ -42,7 +42,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Avoid race conditions
-      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run: dockerize -wait tcp://localhost:3306 -timeout 1m
 
       # Database setup
       - run: bundle exec rake db:create
