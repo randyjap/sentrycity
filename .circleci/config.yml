@@ -8,11 +8,16 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.6.2-node
+        environment:
+          RAILS_ENV: test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      - image: circleci/mysql:8.0.13
+      - image: circleci/mysql:8.0.4
+        command: [--default-authentication-plugin=mysql_native_password]
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
 
     working_directory: ~/repo
 
@@ -36,6 +41,9 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+      # Avoid race conditions
+      - run: dockerize -wait tcp://localhost:3306 -timeout 1m
+
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
@@ -54,6 +62,8 @@ jobs:
               --out /tmp/test-results/rspec.xml \
               --format progress \
               $TEST_FILES
+
+            bundle exec cucumber
 
       # collect reports
       - store_test_results:
