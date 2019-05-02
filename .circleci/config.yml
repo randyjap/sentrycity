@@ -14,8 +14,10 @@ jobs:
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      - image: circleci/mysql:5.7.26
+      - image: circleci/mysql:8.0.4
         environment:
+          command: --default-authentication-plugin=mysql_native_password
+          restart: always
           MYSQL_ALLOW_EMPTY_PASSWORD: true
 
     working_directory: ~/repo
