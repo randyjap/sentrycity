@@ -63,6 +63,8 @@ jobs:
               --format progress \
               $TEST_FILES
 
+            bundle exec cucumber
+
       # collect reports
       - store_test_results:
           path: /tmp/test-results
