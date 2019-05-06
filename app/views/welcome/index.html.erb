@@ -2,10 +2,10 @@
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-8">
-        <p class="subtitle text-secondary">Hurry up, these stores are having their final sale!</p>
-        <h2>Farewell sales!</h2>
+        <p class="subtitle text-secondary"><%= t('.hurry') %></p>
+        <h2><%= t('.farewell') %></h2>
       </div>
-      <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a href="/s" class="text-muted text-sm">See all deals<i class="fas fa-angle-double-right ml-2"></i></a></div>
+      <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a href="/s" class="text-muted text-sm"><%= t('.all_deals') %><i class="fas fa-angle-double-right ml-2"></i></a></div>
     </div>
     <!-- Slider main container-->
     <div data-swiper="{&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:20,&quot;loop&quot;:false,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}" class="swiper-container swiper-container-mx-negative swiper-init">
@@ -16,7 +16,7 @@
           <div class="swiper-slide h-auto px-2">
             <div data-marker-id="<%= store.id.hash %>" class="w-100 h-100">
               <div class="card h-100 border-0 shadow">
-                <div class="ribbon ribbon-secondary"><%= store.discount %>% Off Sale</div>
+                <div class="ribbon ribbon-secondary"><%= I18n.locale == :cn ? store.discount.to_i / 10 : store.discount %><%= t('.off_sale') %></div>
                 <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><%= link_to("", store, class: "tile-link") %>
                 <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count_message %> - <%= store.comment_count_message %></div>
               </div>
@@ -26,7 +26,7 @@
                   <div class="d-flex card-subtitle mb-3">
                     <p class="flex-grow-1 mb-0 text-muted text-sm"><i class="fa-map-marker-alt fas mr-2"></i><%= store.address %></p>
                   </div>
-                  <p class="card-text h6 text-primary"><%= distance_of_time_in_words_to_now(store.event_date) %> left!</p>
+                  <p class="card-text h6 text-primary"><%= distance_of_time_in_words_to_now(store.event_date) %> <%= t('.left') %>!</p>
                 </div>
               </div>
               </div>
@@ -43,12 +43,10 @@
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-8">
-        <p class="subtitle text-secondary">These deals just came in!</p>
-        <h2>Grand opening sales</h2>
+        <p class="subtitle text-secondary"><%= t('.new_deals') %></p>
+        <h2><%= t('.grand_opening_sales') %></h2>
       </div>
-      <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a href="/s" class="text-muted text-sm">
-
-          See all deals<i class="fas fa-angle-double-right ml-2"></i></a></div>
+      <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a href="/s" class="text-muted text-sm"><%= t('.all_deals') %><i class="fas fa-angle-double-right ml-2"></i></a></div>
     </div>
     <!-- Slider main container-->
     <div data-swiper="{&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:20,&quot;loop&quot;:false,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}" class="swiper-container swiper-container-mx-negative swiper-init">
@@ -59,7 +57,7 @@
           <div class="swiper-slide h-auto px-2">
             <div data-marker-id="<%= store.id.hash %>" class="w-100 h-100">
               <div class="card h-100 border-0 shadow">
-                <div class="ribbon ribbon-primary"><%= store.discount %>% Off Sale</div>
+                <div class="ribbon ribbon-primary"><%= I18n.locale == :cn ? store.discount.to_i / 10 : store.discount %><%= t('.off_sale') %></div>
                 <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><%= link_to("", store, class: "tile-link") %>
                 <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count_message %> - <%= store.comment_count_message %></div>
               </div>
@@ -69,7 +67,7 @@
                   <div class="d-flex card-subtitle mb-3">
                     <p class="flex-grow-1 mb-0 text-muted text-sm"><i class="fa-map-marker-alt fas mr-2"></i><%= store.address %></p>
                   </div>
-                  <p class="card-text h6 text-primary">Opened <%= distance_of_time_in_words_to_now(store.event_date) %> ago!</p>
+                  <p class="card-text h6 text-primary"><%= t('.opened') %> <%= distance_of_time_in_words_to_now(store.event_date) %> <%= t('.ago') %>!</p>
                 </div>
               </div>
               </div>

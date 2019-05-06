@@ -30,4 +30,17 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  search: Search
+  daily_discounts: Daily Offers & Discounts
+  your_email: Your Email Address
+  welcome:
+    index:
+      opened: opened
+      ago: ago
+      left: left
+      hurry: Hurry--these stores are having their final sale!
+      farewell: Farewell sales!
+      all_deals: See all deals
+      new_deals: These deals just came in!
+      grand_opening_sales: Grand opening sales
+      off_sale: "% Off Sale"
