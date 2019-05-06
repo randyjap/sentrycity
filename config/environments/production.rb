@@ -1,3 +1,5 @@
+require Rails.root.join('lib/big_query_storage')
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -79,6 +81,9 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true
   }
+
+  # Mail Observer
+  ActionMailer::Base.register_observer(BigQueryStorage)
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
