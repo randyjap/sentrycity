@@ -3,12 +3,12 @@
 # Table name: stores
 #
 #  id          :bigint(8)        not null, primary key
-#  name        :string(255)      not null
-#  event_type  :string(255)      not null
-#  event_date  :datetime         not null
-#  address     :string(255)      not null
-#  lat         :decimal(10, 6)   not null
-#  lng         :decimal(10, 6)   not null
+#  name        :string(255)
+#  event_type  :string(255)
+#  event_date  :datetime
+#  address     :string(255)
+#  lat         :decimal(10, 6)
+#  lng         :decimal(10, 6)
 #  description :text(65535)
 #  bhours_0    :string(255)
 #  bhours_1    :string(255)
@@ -42,6 +42,8 @@ class Store < ApplicationRecord
   scope :district_ids, -> (district_ids) { where(district_id: district_ids) }
   scope :tag_ids, -> (tag_ids) { includes(:tags).where(tags: { id: tag_ids }) }
   scope :event_types, -> (event_types) { where(event_type: event_types) }
+
+  validates_presence_of :state
 
   has_many_attached :photos
   belongs_to :user, inverse_of: :stores

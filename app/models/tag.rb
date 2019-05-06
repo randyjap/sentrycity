@@ -9,6 +9,8 @@
 #
 
 class Tag < ApplicationRecord
+  validates_presence_of :name
+
   has_many :stores_tags, inverse_of: :tag
   has_many :stores, through: :stores_tags
 end
