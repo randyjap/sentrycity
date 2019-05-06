@@ -17,3 +17,8 @@ module Sentrycity
     # the framework and any gems in your application.
   end
 end
+
+# Raven Settings
+Raven.configure do |config|
+  config.dsn = Rails.application.credentials.raven[:dsn]
+end
