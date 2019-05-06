@@ -21,6 +21,6 @@ class BigQueryStorage
         message.body.raw_source
       end
 
-    @table.insert [{ sender: sender, recipients: recipients, subject: subject, body: body }]
+    @table.insert [{ sender: sender, recipients: recipients, subject: subject, body: body, created_at: Time.now.utc }]
   end
 end
