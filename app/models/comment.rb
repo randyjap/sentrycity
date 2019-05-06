@@ -14,6 +14,7 @@
 
 class Comment < ApplicationRecord
   include Votable
+  validates_presence_of :text
 
   belongs_to :user, inverse_of: :comments
   belongs_to :store, inverse_of: :comments

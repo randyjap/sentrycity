@@ -12,5 +12,8 @@
 #
 
 class Vote < ApplicationRecord
+  validates_presence_of :vote
+
   belongs_to :votable, polymorphic: true
+  belongs_to :user
 end

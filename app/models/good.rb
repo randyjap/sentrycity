@@ -9,6 +9,8 @@
 #
 
 class Good < ApplicationRecord
+  validates_presence_of :name
+
   has_many :goods_stores, inverse_of: :good
   has_many :stores, through: :goods_stores
 end

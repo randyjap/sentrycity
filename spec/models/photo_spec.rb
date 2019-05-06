@@ -10,9 +10,18 @@
 #  created_at  :datetime         not null
 #
 
-class Photo < ActiveStorage::Attachment
-  def store
-    return nil unless self.record_type == Store.to_s
-    Store.find_by(id: record_id)
+require 'rails_helper'
+
+RSpec.describe Photo, type: :model do
+  subject { FactoryBot.build :photo, :for_store }
+
+  describe "Validations" do
+    it "is valid with valid attributes" do
+      expect(subject).to be_valid
+    end
+  end
+
+  describe "Associations" do
+    it { should belong_to(:record) }
   end
 end
