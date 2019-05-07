@@ -3,10 +3,10 @@
 </div>
 <section class="py-5 py-lg-6">
   <div class="container text-center">
-    <p class="subtitle text-primary">Add new listing</p>
-    <h1 class="h2 mb-5"> Listing uploaded</h1>
+    <p class="subtitle text-primary"><%= t('.add_new_listing') %></p>
+    <h1 class="h2 mb-5"><%= t('.listing_uploaded') %></h1>
     <p class="mb-5"><%= image_tag('celebration.svg', style: "width: 400px;", class: "img-fluid") %></p>
-    <p class="text-muted mb-5">Thank you, <%= current_user.name || current_user.email %>. Your listing has been saved and will be reviewed shortly.</p>
-    <p class="mb-5"><a href="#" class="btn btn-primary mr-2 mb-2">Do something</a><a href="#" class="btn btn-outline-muted mb-2">Or something else</a></p>
+    <p class="text-muted mb-5"><%= t('.thank_you') %>, <%= current_user.name || current_user.email %>. <%= t('.reviewed_shortly') %></p>
+    <p class="mb-5"><a href="/" class="btn btn-primary mr-2 mb-2"><%= t('.return_home') %></a>
   </div>
 </section>

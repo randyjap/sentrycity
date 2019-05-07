@@ -3,15 +3,16 @@
 </div>
 <section class="py-5">
   <div class="container">
-    <p class="subtitle text-primary">Add new listing</p>
-    <h1 class="h2 mb-5"> Photos & Contact Info (Optional) <span class="text-muted float-right">Step 4</span>                </h1>
+    <p class="subtitle text-primary"><%= t('.add_new_listing') %></p>
+    <h1 class="h2 mb-5"><%= t('.photos_contact_info') %><span class="text-muted float-right"><%= t('.step_4') %></span>                </h1>
     <div class="row form-block">
       <div class="col-lg-4">
-        <h4>Photos</h4>
+        <h4><%= t('.photos') %></h4>
         <p class="text-muted text-sm">His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table.</p>
       </div>
       <div class="col-lg-7 ml-auto">
         <form id="dropzone" action="/photo_uploads" class="dropzone">
+          <div class="dz-message" data-dz-message><span><%= t('.drop_files_here') %></span></div>
           <div class="form-group">
             <div class="fallback">
               <input name="store_params[photos][]" type="file" multiple />
@@ -25,27 +26,27 @@
     </div>
     <div class="row form-block">
       <div class="col-lg-4">
-        <h4>Contact Info</h4>
+        <h4><%= t('.contact_info') %></h4>
         <p class="text-muted text-sm">Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
       </div>
       <div class="col-lg-7 ml-auto">
         <form id="create-a-store-form">
           <!-- Phone Number-->
           <div class="form-group">
-            <label for="form_phone" class="form-label">Phone</label>
+            <label for="form_phone" class="form-label"><%= t('.phone') %></label>
             <input value="<%= store.phone %>" name="store_params[phone]" id="form_phone" class="form-control col-lg-4">
           </div>
           <!-- Address-->
           <div class="form-group">
-            <label for="form_website" class="form-label">Website</label>
+            <label for="form_website" class="form-label"><%= t('.website') %></label>
             <input value="<%= store.url %>" name="store_params[url]" id="form_website" class="form-control col-lg-4">
           </div>
         </form>
       </div>
     </div>
     <div class="row form-block flex-column flex-sm-row">
-      <div class="col text-center text-sm-left"><a onClick="custom.updateStore(event)" href="create-a-store?step=3" class="btn btn-link text-muted"><i class="fa-chevron-left fa mr-2"></i>Back</a></div>
-      <div class="col text-center text-sm-right"><a onClick="custom.updateStore(event, 'true')" href="create-a-store?step=5" class="btn btn-primary px-3">Finish<i class="fa-chevron-right fa ml-2"></i></a></div>
+      <div class="col text-center text-sm-left"><a onClick="custom.updateStore(event)" href="create-a-store?step=3" class="btn btn-link text-muted"><i class="fa-chevron-left fa mr-2"></i><%= t('.back') %></a></div>
+      <div class="col text-center text-sm-right"><a onClick="custom.updateStore(event, 'true')" href="create-a-store?step=5" class="btn btn-primary px-3"><%= t('.finish') %><i class="fa-chevron-right fa ml-2"></i></a></div>
     </div>
   </div>
 </section>

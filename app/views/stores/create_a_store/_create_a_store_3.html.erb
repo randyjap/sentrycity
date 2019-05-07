@@ -3,18 +3,18 @@
 </div>
 <section class="py-5">
   <div class="container">
-    <p class="subtitle text-primary">Add new listing</p>
-    <h1 class="h2 mb-5"> Disposition and Amenities <span class="text-muted float-right">Step 3</span>                </h1>
+    <p class="subtitle text-primary"><%= t('.add_new_listing') %></p>
+    <h1 class="h2 mb-5"> <%= t('.business_hours') %> <span class="text-muted float-right"><%= t('.step_3') %></span>                </h1>
     <form id="create-a-store-form">
       <div class="row form-block">
         <div class="col-lg-4">
-          <h4>When does the store open and close?</h4>
-          <p class="text-muted text-sm"> The number and types of beds you have determines how many guests can stay comfortably</p>
+          <h4><%= t('.when_open_close') %></h4>
+          <p class="text-muted text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing elit duis tristique sollicitudin nibh sit. Est placerat in egestas erat imperdiet sed. Felis bibendum ut tristique et egestas quis.</p>
         </div>
         <div class="col-lg-7 ml-auto">
           <div class="row">
             <div class="col-lg-12">
-              <label class="form-label">Mondays</label>
+              <label class="form-label"><%= t('app-settings.mondays') %></label>
               <div class="d-flex align-items-center">
                 <input type="text" class="js-range-slider" name="store_params[bhours_0]" value="" style="width: 100%;"
                   data-type="double"
@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <label class="form-label">Tuesdays</label>
+              <label class="form-label"><%= t('app-settings.tuesdays') %></label>
               <div class="d-flex align-items-center">
                 <input type="text" class="js-range-slider" name="store_params[bhours_1]" value="" style="width: 100%;"
                   data-type="double"
@@ -42,7 +42,7 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <label class="form-label">Wednesdays</label>
+              <label class="form-label"><%= t('app-settings.wednesdays') %></label>
               <div class="d-flex align-items-center">
                 <input type="text" class="js-range-slider" name="store_params[bhours_2]" value="" style="width: 100%;"
                   data-type="double"
@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <label class="form-label">Thursdays</label>
+              <label class="form-label"><%= t('app-settings.thursdays') %></label>
               <div class="d-flex align-items-center">
                 <input type="text" class="js-range-slider" name="store_params[bhours_3]" value="" style="width: 100%;"
                   data-type="double"
@@ -70,7 +70,7 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <label class="form-label">Fridays</label>
+              <label class="form-label"><%= t('app-settings.fridays') %></label>
               <div class="d-flex align-items-center">
                 <input type="text" class="js-range-slider" name="store_params[bhours_4]" value="" style="width: 100%;"
                   data-type="double"
@@ -84,7 +84,7 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <label class="form-label">Saturdays</label>
+              <label class="form-label"><%= t('app-settings.saturdays') %></label>
               <div class="d-flex align-items-center">
                 <input type="text" class="js-range-slider" name="store_params[bhours_5]" value="" style="width: 100%;"
                   data-type="double"
@@ -98,7 +98,7 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <label class="form-label">Sundays</label>
+              <label class="form-label"><%= t('app-settings.sundays') %></label>
               <div class="d-flex align-items-center">
                 <input type="text" class="js-range-slider" name="store_params[bhours_6]" value="" style="width: 100%;"
                   data-type="double"
@@ -112,7 +112,7 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <label class="form-label">Holidays</label>
+              <label class="form-label"><%= t('app-settings.holidays') %></label>
               <div class="d-flex align-items-center">
                 <input type="text" class="js-range-slider" name="store_params[bhours_7]" value="" style="width: 100%;"
                   data-type="double"
@@ -129,8 +129,8 @@
         </div>
       </div>
       <div class="row form-block flex-column flex-sm-row">
-        <div class="col text-center text-sm-left"><a onClick="custom.updateStore(event)" href="create-a-store?step=2" class="btn btn-link text-muted"><i class="fa-chevron-left fa mr-2"></i>Back</a></div>
-        <div class="col text-center text-sm-right"><a onClick="custom.updateStore(event)" href="create-a-store?step=4" class="btn btn-primary px-3">Next step<i class="fa-chevron-right fa ml-2"></i></a></div>
+        <div class="col text-center text-sm-left"><a onClick="custom.updateStore(event)" href="create-a-store?step=2" class="btn btn-link text-muted"><i class="fa-chevron-left fa mr-2"></i><%= t('.back') %></a></div>
+        <div class="col text-center text-sm-right"><a onClick="custom.updateStore(event)" href="create-a-store?step=4" class="btn btn-primary px-3"><%= t('.next_step') %><i class="fa-chevron-right fa ml-2"></i></a></div>
       </div>
     </form>
   </div>

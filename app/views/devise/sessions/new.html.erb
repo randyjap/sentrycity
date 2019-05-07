@@ -3,21 +3,21 @@
     <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
       <div class="w-100 py-5 px-md-5 px-xl-6 position-relative">
         <div class="mb-5"><img src="<%= asset_path('logo-square.svg') %>" alt="SentryCity Logo" style="max-width: 4rem;" class="img-fluid mb-3">
-          <h2>Welcome back</h2>
+          <h2><%= t('.welcome') %></h2>
         </div>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-validate" }) do |f| %>
           <div class="form-group">
-            <%= f.label :email, class: "form-label" %><br />
+            <%= f.label t('.email'), class: "form-label" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </div>
 
           <div class="form-group mb-4">
             <div class="row">
               <div class="col">
-                <%= f.label :password, class: "form-label" %>
+                <%= f.label t('.password'), class: "form-label" %>
               </div>
               <div class="col-auto">
-                <%= link_to "Forgot your password?", new_password_path(resource), class: "form-text small" %>
+                <%= link_to t('.forgot_password'), new_password_path(resource), class: "form-text small" %>
               </div>
             </div>
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
@@ -26,27 +26,27 @@
           <div class="form-group mb-4">
             <div class="custom-control custom-checkbox">
               <%= f.check_box :remember_me, class: "custom-control-input" %>
-              <%= f.label :remember_me, class: "custom-control-label text-muted" %>
+              <%= f.label :remember_me, t('.remember_me'), class: "custom-control-label text-muted" %>
             </div>
           </div>
 
-          <%= f.submit "Sign In", class: "btn btn-lg btn-block btn-primary" %>
-          <hr data-content="OR" class="my-3 hr-text letter-spacing-2">
+          <%= f.submit t('.sign_in'), class: "btn btn-lg btn-block btn-primary" %>
+          <hr data-content="<%= t('.or') %>" class="my-3 hr-text letter-spacing-2">
 
         <% end %>
         <form action="<%= user_facebook_omniauth_authorize_path %>">
-          <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Sign in with Facebook</button>
+          <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i><%= t('.facebook_login') %></button>
         </form>
         <hr class="my-4">
         <p class="text-center">
           <small class="text-muted text-center">
-            Don't have an account yet? <%= link_to "Sign Up", new_registration_path(resource) %>
+            <%= t('.no_account_yet') %> <%= link_to t('.sign_up'), new_registration_path(resource) %>
           </small><br />
           <small class="text-muted text-center">
-            <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource) %>
+            <%= link_to t('.did_not_receive_confirmation_industructions'), new_confirmation_path(resource) %>
           </small><br />
           <small class="text-muted text-center">
-            <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource) %>
+            <%= link_to t('.did_not_receive_unlock_industructions'), new_unlock_path(resource) %>
           </small><br />
         </p>
       </div>

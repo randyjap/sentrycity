@@ -1,8 +1,8 @@
 <% District.all.each do |district| %>
   <% next if stores[district.name].nil? %>
   <!-- Slider main container-->
-  <h1 class="display-5 font-weight-bold text-serif"><%= district.name %></h1>
-  <p class="mb-3 mb-md-0"><strong><%= stores[district.name].size %></strong> results found</p>
+  <h1 class="display-5 font-weight-bold text-serif"><%= t("app-settings.districts.#{district.name}") %></h1>
+  <p class="mb-3 mb-md-0"><strong><%= stores[district.name].size %></strong> <%= t('app-settings.results_found') %></p>
   <div data-swiper="{&quot;slidesPerView&quot;:3,&quot;spaceBetween&quot;:20,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}" class="swiper-container swiper-container-mx-negative swiper-init">
     <!-- Additional required wrapper-->
     <div class="swiper-wrapper pb-5">
@@ -11,9 +11,9 @@
         <div class="swiper-slide h-auto px-2">
           <div data-marker-id="<%= store.id.hash %>" class="w-100 h-100">
             <div class="card h-100 border-0 shadow">
-              <div class="ribbon ribbon-<%= store.grand_opening? ? "primary" : "secondary" %>"><%= store.discount %>% Off Sale</div>
+              <div class="ribbon ribbon-<%= store.grand_opening? ? "primary" : "secondary" %>"><%= I18n.locale == :zh ? store.discount.to_i / 10 : store.discount %><%= t('app-settings.off_sale') %></div>
               <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><%= link_to("", store, class: "tile-link") %>
-              <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count_message %> - <%= store.comment_count_message %></div>
+              <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= "#{store.vote_count} #{t('.points')} - #{store.comment_count} #{t('.comments')}" %></div>
             </div>
             <div class="card-body d-flex align-items-center">
               <div class="w-100">

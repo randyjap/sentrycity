@@ -3,36 +3,36 @@
     <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
       <div class="w-100 py-5 px-md-5 px-xl-6 position-relative">
         <div class="mb-5"><img src="<%= asset_path('logo-square.svg') %>" alt="SentryCity Logo" style="max-width: 4rem;" class="img-fluid mb-3">
-          <h2>Sign up</h2>
+          <h2><%= t('.sign_up') %></h2>
         </div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-validate" }) do |f| %>
           <div class="form-group">
-            <%= f.label :email, class: "form-label" %><br />
+            <%= f.label t('.email'), class: "form-label" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :password, class: "form-label" %>
+            <%= f.label t('.password'), class: "form-label" %>
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           </div>
 
-          <%= f.submit "Sign up", class: "btn btn-lg btn-block btn-primary" %>
-          <hr data-content="OR" class="my-3 hr-text letter-spacing-2">
+          <%= f.submit t('.sign_up'), class: "btn btn-lg btn-block btn-primary" %>
+          <hr data-content="<%= t('.or') %>" class="my-3 hr-text letter-spacing-2">
 
         <% end %>
         <form action="<%= user_facebook_omniauth_authorize_path %>">
-          <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Sign up with Facebook</button>
+          <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i><%= t('.facebook_signup') %></button>
         </form>
         <hr class="my-4">
         <p class="text-center">
           <small class="text-muted text-center">
-            Already have an account? <%= link_to "Login", new_session_path(resource) %>
+            <%= t('.already') %> <%= link_to t('.login'), new_session_path(resource) %>
           </small><br />
           <small class="text-muted text-center">
-            <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource) %>
+            <%= link_to t('.did_not_receive_confirmation_industructions'), new_confirmation_path(resource) %>
           </small><br />
           <small class="text-muted text-center">
-            <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource) %>
+            <%= link_to t('.did_not_receive_unlock_industructions'), new_unlock_path(resource) %>
           </small><br />
         </p>
       </div>

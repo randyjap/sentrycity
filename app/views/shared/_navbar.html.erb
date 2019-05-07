@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="d-flex align-items-center">
       <%= link_to image_tag("logo.svg", alt: "SentryCity Logo"), root_path ,class: "navbar-brand py-1" %>
-      <a id="locale-chinese" onClick="custom.setLocales(event, 'cn')"><span class="badge badge-danger ml-1">繁</span></a>
+      <a id="locale-chinese" onClick="custom.setLocales(event, 'zh')"><span class="badge badge-danger ml-1">繁</span></a>
       <a id="locale-english" onClick="custom.setLocales(event, 'en')"><span class="badge badge-info ml-1">English</span></a>
     </div>
     <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
@@ -20,9 +20,9 @@
         </div>
       </form>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a href="/s?search_params[district_ids][]=5" class="nav-link"><%= t(:search) %></a> </li>
+        <li class="nav-item"><a href="/s?search_params[district_ids][]=1" class="nav-link"><%= t(:search) %></a> </li>
         <% if current_user %>
-          <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, class: "nav-link", method: :delete %></li>
+          <li class="nav-item"><%= link_to t(:sign_out), destroy_user_session_path, class: "nav-link", method: :delete %></li>
         <% else %>
           <li class="nav-item"><a href="#" data-toggle="modal" data-target="#signinModal" class="nav-link"><%= t(:sign_in) %></a></li>
         <% end %>

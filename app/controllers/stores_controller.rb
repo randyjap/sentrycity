@@ -2,8 +2,8 @@ class StoresController < ApplicationController
   before_action :require_login
 
   def bookmark
-    @new_store = Store.find(params[:id])
-    @new_store.bookmark_toggle(current_user.id)
+    @store = Store.find(params[:id])
+    @store.bookmark_toggle(current_user.id)
   end
 
   def create_a_store
@@ -19,10 +19,10 @@ class StoresController < ApplicationController
   end
 
   def comments
-    @new_store = Store.find(params[:id])
+    @store = Store.find(params[:id])
     comment = Comment.new(comment_params)
     comment.user = current_user
-    @new_store.comments << comment
+    @store.comments << comment
   end
 
   def show
@@ -31,14 +31,14 @@ class StoresController < ApplicationController
   end
 
   def store_vote
-    @new_store = Store.find(params[:id])
+    @store = Store.find(params[:id])
     if vote_params[:vote] == "1"
-      @new_store.up_vote(current_user.id)
+      @store.up_vote(current_user.id)
     elsif vote_params[:vote] == "-1"
-      @new_store.down_vote(current_user.id)
+      @store.down_vote(current_user.id)
     end
 
-    @new_vote_count = @new_store.vote_count
+    @new_vote_count = @store.vote_count
   end
 
   private

@@ -1,0 +1,116 @@
+en:
+  app-settings:
+    mondays: Mondays
+    tuesdays: Tuesdays
+    wednesdays: Wednesdays
+    thursdays: Thursdays
+    fridays: Fridays
+    saturdays: Saturdays
+    sundays: Sundays
+    holidays: Holidays
+    farewell: Farewell Sale
+    grand_opening: Grand Opening
+    store: Store
+    district: District
+    goods: Goods
+    sale: Sale
+    name: Name
+    results_found: results found
+    goods_types:
+      'Fashion': Fashion
+      'Clothing': Clothing
+      'Electronics & Computers': Electronics & Computers
+      'Books': Books
+      'Pet Supplies': Pet Supplies
+      'Baby': Baby
+      'Beauty and Healthcare': Beauty & Healthcare
+      'Other': Other
+    districts:
+      'Aberdeen': Aberdeen
+      'Admiralty': Admiralty
+      'Ap Lei Chau': Ap Lei Chau
+      'Causeway Bay': Causeway Bay
+      'Central': Central
+      'Chai Wan': Chai Wan
+      'Chek Lap Kok': Chek Lap Kok
+      'Cheung Chau': Cheung Chau
+      'Cheung Sha Wan': Cheung Sha Wan
+      'Choi Hung': Choi Hung
+      'Cyberport': Cyberport
+      'Deep Water Bay': Deep Water Bay
+      'Diamond Hill': Diamond Hill
+      'Discovery Bay': Discovery Bay
+      'Fanling': Fanling
+      'Fo Tan': Fo Tan
+      'Heng Fa Chuen': Heng Fa Chuen
+      'Ho Man Tin': Ho Man Tin
+      'Hung Hom': Hung Hom
+      'Jordan': Jordan
+      'Knutsford Terrace': Knutsford Terrace
+      'Kowloon Bay': Kowloon Bay
+      'Kowloon City': Kowloon City
+      'Kowloon Tong': Kowloon Tong
+      'Kwai Chung': Kwai Chung
+      'Kwai Fong': Kwai Fong
+      'Kwun Tong': Kwun Tong
+      'Lai Chi Kok': Lai Chi Kok
+      'Lam Tin': Lam Tin
+      'Lamma Island': Lamma Island
+      'Lan Kwai Fong': Lan Kwai Fong
+      'Lantau Island': Lantau Island
+      'Lau Fau Shan': Lau Fau Shan
+      'Lei Yue Mun': Lei Yue Mun
+      'Lo Wu': Lo Wu
+      'Lok Fu': Lok Fu
+      'Lok Ma Chau': Lok Ma Chau
+      'Ma On Shan': Ma On Shan
+      'Ma Wan': Ma Wan
+      'Mei Foo': Mei Foo
+      'Mid-Levels': Mid-Levels
+      'Mong Kok': Mong Kok
+      'Ngau Tau Kok': Ngau Tau Kok
+      'North Point': North Point
+      'Ping Chau': Ping Chau
+      'Po Toi Island': Po Toi Island
+      'Pok Fu Lam': Pok Fu Lam
+      'Prince Edward': Prince Edward
+      'Quarry Bay': Quarry Bay
+      'Repulse Bay': Repulse Bay
+      'Sai Kung': Sai Kung
+      'Sai Wan Ho': Sai Wan Ho
+      'San Po Kong': San Po Kong
+      'Sha Tin': Sha Tin
+      'Sham Shui Po': Sham Shui Po
+      'Sham Tseng': Sham Tseng
+      'Shau Kei Wan': Shau Kei Wan
+      'Shek Kip Mei': Shek Kip Mei
+      'Shek O': Shek O
+      'Sheung Shui': Sheung Shui
+      'Sheung Wan': Sheung Wan
+      'Soho': Soho
+      'Stanley': Stanley
+      'Tai Hang': Tai Hang
+      'Tai Kok Tsui': Tai Kok Tsui
+      'Tai Koo': Tai Koo
+      'Tai O': Tai O
+      'Tai Po': Tai Po
+      'Tai Wai': Tai Wai
+      'Tai Wo': Tai Wo
+      'The Peak': The Peak
+      'Tin Hau': Tin Hau
+      'Tin Shui Wai': Tin Shui Wai
+      'To Kwa Wan': To Kwa Wan
+      'Tseung Kwan O': Tseung Kwan O
+      'Tsim Sha Tsui': Tsim Sha Tsui
+      'Tsing Yi': Tsing Yi
+      'Tsuen Wan': Tsuen Wan
+      'Tsz Wan Shan': Tsz Wan Shan
+      'Tuen Mun': Tuen Mun
+      'Tung Chung': Tung Chung
+      'Wan Chai': Wan Chai
+      'Western District': Western District
+      'Wong Chuk Hang': Wong Chuk Hang
+      'Wong Tai Sin': Wong Tai Sin
+      'Yau Ma Tei': Yau Ma Tei
+      'Yau Tong': Yau Tong
+      'Yuen Long': Yuen Long

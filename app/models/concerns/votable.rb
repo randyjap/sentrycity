@@ -32,8 +32,4 @@ module Votable
   def vote_count
     votes.sum { |v| v.vote }
   end
-
-  def vote_count_message
-    "#{vote_count} #{"Point".pluralize(vote_count)}"
-  end
 end

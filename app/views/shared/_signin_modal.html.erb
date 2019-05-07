@@ -4,21 +4,21 @@
     <div class="modal-content">
       <div class="w-100 py-5 px-md-5 px-xl-5 px-4 position-relative">
         <div class="mb-5"><img src="<%= asset_path('logo-square.svg') %>" alt="SentryCity Logo" style="max-width: 4rem;" class="img-fluid mb-3">
-          <h2>Welcome back</h2>
+          <h2><%= t('devise.sessions.new.welcome') %></h2>
         </div>
         <%= form_for(:user, as: :user, url: session_path(:user), html: { class: "form-validate" }) do |f| %>
           <div class="form-group">
-            <%= f.label :email, class: "form-label" %><br />
+            <%= f.label t('devise.sessions.new.welcome'), class: "form-label" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: 'modal_email_id' %>
           </div>
 
           <div class="form-group mb-4">
             <div class="row">
               <div class="col">
-                <%= f.label :password, class: "form-label" %>
+                <%= f.label t('devise.sessions.new.password'), class: "form-label" %>
               </div>
               <div class="col-auto">
-                <%= link_to "Forgot your password?", new_password_path(:user), class: "form-text small" %>
+                <%= link_to t('devise.sessions.new.forgot_password'), new_password_path(:user), class: "form-text small" %>
               </div>
             </div>
             <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: 'modal_user_password' %>
@@ -27,27 +27,27 @@
           <div class="form-group mb-4">
             <div class="custom-control custom-checkbox">
               <%= f.check_box :remember_me, class: "custom-control-input", id: 'modal_user_remember_me' %>
-              <%= f.label :remember_me, class: "custom-control-label text-muted" %>
+              <%= f.label t('devise.sessions.new.remember_me'), class: "custom-control-label text-muted" %>
             </div>
           </div>
 
-          <%= f.submit "Sign In", class: "btn btn-lg btn-block btn-primary" %>
-          <hr data-content="OR" class="my-3 hr-text letter-spacing-2">
+          <%= f.submit t('devise.sessions.new.sign_in'), class: "btn btn-lg btn-block btn-primary" %>
+          <hr data-content="<%= t('devise.sessions.new.or') %>" class="my-3 hr-text letter-spacing-2">
 
         <% end %>
         <form action="<%= user_facebook_omniauth_authorize_path %>">
-          <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Sign in with Facebook</button>
+          <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i><%= t('devise.sessions.new.facebook_login') %></button>
         </form>
         <hr class="my-4">
         <p class="text-center">
           <small class="text-muted text-center">
-            Don't have an account yet? <%= link_to "Sign Up", new_registration_path(:user) %>
+            <%= t('devise.sessions.new.no_account_yet') %> <%= link_to "Sign Up", new_registration_path(:user) %>
           </small><br />
           <small class="text-muted text-center">
-            <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(:user) %>
+            <%= link_to t('devise.sessions.new.did_not_receive_confirmation_industructions'), new_confirmation_path(:user) %>
           </small><br />
           <small class="text-muted text-center">
-            <%= link_to "Didn't receive unlock instructions?", new_unlock_path(:user) %>
+            <%= link_to t('devise.sessions.new.did_not_receive_unlock_industructions'), new_unlock_path(:user) %>
           </small><br />
         </p>
       </div>

@@ -1,0 +1,117 @@
+zh:
+  app-settings:
+    mondays: 星期一
+    tuesdays: 星期二
+    wednesdays: 星期三
+    thursdays: 星期四
+    fridays: 星期五
+    saturdays: 星期六
+    sundays: 星期天
+    holidays: 假期
+    farewell: 告別銷售
+    grand_opening: 盛大開幕
+    store: 商店
+    district: 區
+    goods: 產品
+    sale: 拍賣
+    name: 名稱
+    results_found: 結果發現
+    off_sale: 折
+    goods_types:
+      'Fashion': 時尚
+      'Clothing': 服裝
+      'Electronics & Computers': 電子與計算機
+      'Books': 圖書
+      'Pet Supplies': 寵物用品
+      'Baby': 寶寶
+      'Beauty and Healthcare': 美容與保健
+      'Other': 其他
+    districts:
+      'Aberdeen': 阿伯丁
+      'Admiralty': 金鐘
+      'Ap Lei Chau': 鴨脷洲
+      'Causeway Bay': 銅鑼灣
+      'Central': 中央
+      'Chai Wan': 柴灣
+      'Chek Lap Kok': 赤鱲角
+      'Cheung Chau': 長洲
+      'Cheung Sha Wan': 長沙灣
+      'Choi Hung': 崔鴻
+      'Cyberport': 數碼港
+      'Deep Water Bay': 深水灣
+      'Diamond Hill': 鑽石山
+      'Discovery Bay': 愉景灣
+      'Fanling': 粉嶺
+      'Fo Tan': 火炭
+      'Heng Fa Chuen': 杏花村
+      'Ho Man Tin': 何文田
+      'Hung Hom': 紅磡
+      'Jordan': 約旦
+      'Knutsford Terrace': 納茨福德露台
+      'Kowloon Bay': 九龍灣
+      'Kowloon City': 九龍城
+      'Kowloon Tong': 九龍塘
+      'Kwai Chung': 葵涌
+      'Kwai Fong': 葵芳
+      'Kwun Tong': 觀塘
+      'Lai Chi Kok': 荔枝角
+      'Lam Tin': 藍田
+      'Lamma Island': 南丫島
+      'Lan Kwai Fong': 蘭桂坊
+      'Lantau Island': 大嶼山
+      'Lau Fau Shan': 流浮山
+      'Lei Yue Mun': 鯉魚門
+      'Lo Wu': 羅武
+      'Lok Fu': 樂富
+      'Lok Ma Chau': 落馬洲
+      'Ma On Shan': 馬鞍山
+      'Ma Wan': 馬灣
+      'Mei Foo': 美孚
+      'Mid-Levels': 半山
+      'Mong Kok': 旺角
+      'Ngau Tau Kok': 牛頭角
+      'North Point': 北角
+      'Ping Chau': 平洲
+      'Po Toi Island': 蒲台島
+      'Pok Fu Lam': 薄扶林
+      'Prince Edward': 愛德華王子
+      'Quarry Bay': 鰂魚涌
+      'Repulse Bay': 淺水灣
+      'Sai Kung': 西貢
+      'Sai Wan Ho': 西灣河
+      'San Po Kong': 新蒲崗
+      'Sha Tin': 沙田
+      'Sham Shui Po': 深水埗
+      'Sham Tseng': 深井
+      'Shau Kei Wan': 筲箕灣
+      'Shek Kip Mei': 石夾尾
+      'Shek O': 石澳
+      'Sheung Shui': 上水
+      'Sheung Wan': 上環
+      'Soho': 蘇荷
+      'Stanley': 斯坦利
+      'Tai Hang': 大坑
+      'Tai Kok Tsui': 大角咀
+      'Tai Koo': 太古
+      'Tai O': 大澳
+      'Tai Po': 大埔
+      'Tai Wai': 大圍
+      'Tai Wo': 太和
+      'The Peak': 峰值
+      'Tin Hau': 天后
+      'Tin Shui Wai': 天水圍
+      'To Kwa Wan': 去土瓜灣
+      'Tseung Kwan O': 將軍澳
+      'Tsim Sha Tsui': 尖沙咀
+      'Tsing Yi': 青衣
+      'Tsuen Wan': 荃灣
+      'Tsz Wan Shan': 慈雲山
+      'Tuen Mun': 屯門
+      'Tung Chung': 東涌
+      'Wan Chai': 灣仔
+      'Western District': 西區
+      'Wong Chuk Hang': 黃竹坑
+      'Wong Tai Sin': 黃大仙
+      'Yau Ma Tei': 油麻地
+      'Yau Tong': 油塘
+      'Yuen Long': 元朗
