@@ -1,0 +1,152 @@
+zh:
+  search: 搜尋
+  daily_discounts: 我想收到當天優惠折扣訊息
+  your_email: 電子郵件地址
+  sign_in: 登入
+  sign_out: 登出
+  add_a_store_sale: 加有出清活動商家
+  all_rights_reserved: 版權所有
+  search_button: 搜索
+  s:
+    search_results:
+      points: 點
+      comments: 評論
+  stores:
+    show:
+      see_comments: 看評論
+      'Grand Opening': 盛大開幕
+      'Farewell Sale': 告別銷售
+      opening_hours: 營業時間
+      location: 地點
+      gallery: 畫廊
+      ask_a_question: 問一個問題
+      contact: 聯繫
+      comment: 評論
+      write_here: 寫在這裡
+      post_comment: 發表評論
+      comments:
+        ago: 前
+        reputation: 聲譽
+        points: 點
+        posts: 帖子
+        delete_comment: 刪除評論
+      bookmarks:
+        bookmark_this_listing: 收藏此房源
+        bookmark_saved: 已收藏書籤！
+        people_bookmarked_this_listing: 人已收藏此房源
+    create_a_store:
+      create_a_store_1:
+        add_new_listing: 添加新的列表
+        basic_info: 基本信息
+        step_1: 步驟1
+        basic: 基本
+        grand_opening_or_farewell_sale: 這是一個盛大的開業或特賣嗎？
+        farewell_sale: 告別銷售
+        grand_opening: 盛大開幕
+        store_name: 商店名稱
+        date_of_event: 關閉或大開的日期
+        location: 地點
+        district: 區
+        address: 地址
+        next_step: 下一步
+      create_a_store_2:
+        add_new_listing: 添加新的列表
+        store_type: 商店類型
+        step_2: 步驟2
+        what_does_the_store_sell: 商店賣什麼？
+        goods: 產品
+        how_much_discount: 物品打折多少錢？
+        up_to_off: 最高百分比
+        description: 描述
+        help_shoppers: 幫助購物者了解商店銷售的商品
+        example: '例如：”設計師連衣裙和鞋子的折扣很大。大多數商品可享受50％的折扣。'
+        back: 回去
+        next_step: 下一步
+      create_a_store_3:
+        add_new_listing: 添加新的列表
+        business_hours: 營業時間
+        step_3: 步驟3
+        when_open_close: 商店何時開門和關門？
+        back: 回去
+        next_step: 下一步
+      create_a_store_4:
+        add_new_listing: 添加新的列表
+        photos_contact_info: 照片和聯繫信息（可選）
+        step_4: 步驟4
+        photos: 相片
+        drop_files_here: 刪除文件以上傳
+        contact_info: 聯繫信息
+        phone: 電話
+        website: 網站
+        back: 回去
+        finish: 完
+      create_a_store_5:
+        add_new_listing: 添加新的列表
+        listing_uploaded: 上傳的列表
+        thank_you: 謝謝
+        reviewed_shortly: 您的商家信息已保存，很快就會進行審核。
+        return_home: 返回主頁
+      gallery:
+        gallery: 畫廊
+  datetime:
+    distance_in_words:
+      x_minutes: "%{count} 分鐘"
+      about_x_hours: "%{count} 小時"
+      x_days: "%{count} 天"
+  welcome:
+    index:
+      opened: ''
+      ago: 前開幕
+      points: 點
+      comments: 評論
+      left: 其餘
+      hurry: 動作要快！現有出清活動商家！
+      farewell: 出清活動！
+      all_deals: 所有優惠
+      new_deals: 最新優惠
+      grand_opening_sales: 新開幕優惠
+      off_sale: 折
+  devise:
+    unlocks:
+      new:
+        email: 電子郵件
+        resend_instructions: 重新發送確認說明
+        unlock: 開鎖
+        sign_up: 註冊
+        no_account_yet: 還沒有賬號？
+        did_not_receive_confirmation_industructions: 沒有收到確認說明？
+    confirmations:
+      new:
+        email: 電子郵件
+        resend_instructions: 重新發送確認說明
+        resend: 重發
+        sign_up: 註冊
+        no_account_yet: 還沒有賬號？
+        did_not_receive_unlock_industructions: 沒有收到解鎖說明？
+    sessions:
+      new:
+        welcome: 歡迎回來
+        email: 電子郵件
+        password: 密碼
+        forgot_password: 忘記密碼了嗎？
+        remember_me: 記住賬號
+        sign_in: 登入
+        or: 或
+        facebook_login: 用Facebook登錄
+        no_account_yet: 還沒有賬號？
+        sign_up: 註冊
+        did_not_receive_confirmation_industructions: 沒有收到確認說明？
+        did_not_receive_unlock_industructions: 沒有收到解鎖說明？
+    registrations:
+      new:
+        sign_up: 註冊
+        email: 電子郵件
+        password: 密碼
+        forgot_password: 忘記密碼了嗎？
+        remember_me: 記住賬號
+        or: 或
+        facebook_signup: 用Facebook註冊
+        already: 已經有賬號？
+        login: 登錄
+        did_not_receive_confirmation_industructions: 沒有收到確認說明？
+        did_not_receive_unlock_industructions: 沒有收到解鎖說明？

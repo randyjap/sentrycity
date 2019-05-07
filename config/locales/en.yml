@@ -1,42 +1,97 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   search: Search
   daily_discounts: Daily Offers & Discounts
   your_email: Your Email Address
+  all_rights_reserved: All rights reserved
+  search_button: Kazaam
+  s:
+    search_results:
+      points: points
+      comments: comments
+  stores:
+    show:
+      see_comments: See Comments
+      'Grand Opening': Grand Opening
+      'Farewell Sale': Grand Opening
+      opening_hours: Opening Hours
+      location: Location
+      gallery: Gallery
+      ask_a_question: Ask a question
+      contact: Contact
+      comment: Comment
+      write_here: Write here
+      post_comment: Post Comment
+      comments:
+        ago: ago
+        reputation: Reputation
+        points: points
+        posts: posts
+        delete_comment: Delete Comment
+      bookmarks:
+        bookmark_this_listing: Bookmark This Listing
+        bookmark_saved: Bookmark Saved!
+        people_bookmarked_this_listing: people bookmarked this listing
+    create_a_store:
+      create_a_store_1:
+        add_new_listing: Add New Listing
+        basic_info: Basic Information
+        step_1: Step 1
+        basic: Basic
+        grand_opening_or_farewell_sale: Is this a grand opening or farewell sale?
+        farewell_sale: Farewell Sale
+        grand_opening: Grand Opening
+        store_name: Store Name
+        date_of_event: Date of Closure or Grand Opening
+        location: Location
+        district: District
+        address: Address
+        next_step: Next Step
+      create_a_store_2:
+        add_new_listing: Add New Listing
+        store_type: Store Type
+        step_2: Step 2
+        what_does_the_store_sell: What does the store sell?
+        goods: Goods
+        how_much_discount: How much are items discounted up to?
+        up_to_off: Up to Percent Off
+        description: Description
+        help_shoppers: Help shoppers understand what the store sells
+        example: 'Example: "Great discounts on designers dresses and shoes. 50% off on most items."'
+        back: Back
+        next_step: Next Step
+      create_a_store_3:
+        add_new_listing: Add New Listing
+        business_hours: Business Hours
+        step_3: Step 3
+        when_open_close: When does the store open and close?
+        back: Back
+        next_step: Next Step
+      create_a_store_4:
+        add_new_listing: Add New Listing
+        photos_contact_info: Photos & Contact Info (Optional)
+        step_4: Step 4
+        photos: Photos
+        drop_files_here: Drop files here to upload
+        gallery: Gallery
+        contact_info: Contact Info
+        phone: Phone
+        website: Website
+        back: Back
+        finish: Finish
+      create_a_store_5:
+        add_new_listing: Add New Listing
+        listing_uploaded: Listing uploaded
+        thank_you: Thank you
+        reviewed_shortly: Your listing has been saved and will be reviewed shortly.
+        return_home: Return to Main Page
+      gallery:
+        gallery: Gallery
   welcome:
     index:
       opened: opened
       ago: ago
+      points: points
+      comments: comments
       left: left
       hurry: Hurry--these stores are having their final sale!
       farewell: Farewell sales!
@@ -44,3 +99,47 @@ en:
       new_deals: These deals just came in!
       grand_opening_sales: Grand opening sales
       off_sale: "% Off Sale"
+  devise:
+    unlocks:
+      new:
+        email: Email
+        resend_instructions: Resend unlock instructions
+        unlock: Unlock
+        sign_up: Sign Up
+        no_account_yet: Don't have an account yet?
+        did_not_receive_confirmation_industructions: Didn't receive confirmation instructions?
+    confirmations:
+      new:
+        email: Email
+        resend_instructions: Resend confirmation instructions
+        resend: Resend
+        sign_up: Sign Up
+        no_account_yet: Don't have an account yet?
+        did_not_receive_unlock_industructions: Didn't receive unlock instructions?
+    sessions:
+      new:
+        welcome: Welcome back
+        email: Email
+        password: Password
+        forgot_password: Forgot your password?
+        remember_me: Remember me
+        sign_in: Sign In
+        or: or
+        facebook_login: Sign In with Facebook
+        no_account_yet: Don't have an account yet?
+        sign_up: Sign Up
+        did_not_receive_confirmation_industructions: Didn't receive confirmation instructions?
+        did_not_receive_unlock_industructions: Didn't receive unlock instructions?
+    registrations:
+      new:
+        sign_up: Sign up
+        email: Email
+        password: Password
+        forgot_password: Forgot your password?
+        remember_me: Remember me
+        or: or
+        facebook_signup: Sign Up with Facebook
+        already: Already have an account?
+        login: Login
+        did_not_receive_confirmation_industructions: Didn't receive confirmation instructions?
+        did_not_receive_unlock_industructions: Didn't receive unlock instructions?

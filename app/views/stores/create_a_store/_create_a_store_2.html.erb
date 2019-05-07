@@ -3,23 +3,23 @@
 </div>
 <section class="py-5">
   <div class="container">
-    <p class="subtitle text-primary">Add new listing</p>
-    <h1 class="h2 mb-5"> Texts <span class="text-muted float-right">Step 2</span>                </h1>
+    <p class="subtitle text-primary"><%= t('.add_new_listing') %></p>
+    <h1 class="h2 mb-5"> <%= t('.store_type') %> <span class="text-muted float-right"><%= t('.step_2') %></span>                </h1>
     <form id="create-a-store-form">
       <div class="row form-block">
           <div class="col-lg-4">
-            <h4>What does the store sell?</h4>
+            <h4><%= t('.what_does_the_store_sell') %></h4>
             <p class="text-muted text-sm">His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table.</p>
           </div>
           <div class="col-lg-7 ml-auto">
             <div class="form-group">
-              <label class="form-label">Goods</label>
+              <label class="form-label"><%= t('.goods') %></label>
               <ul class="list-inline mb-0">
                 <% Tag.all.each do |tag| %>
                   <li class="list-inline-item">
                     <div class="custom-control custom-checkbox">
                       <input <%= store.tags.map(&:id).include?(tag.id) ? "checked" : "" %> type="checkbox" id="tag-id-<%= tag.id %>" name="store_params[tag_ids][]" value="<%= tag.id %>" class="custom-control-input">
-                      <label for="tag-id-<%= tag.id %>" class="custom-control-label text-muted"><%= tag.name %></label>
+                      <label for="tag-id-<%= tag.id %>" class="custom-control-label text-muted"><%= t("app-settings.goods_types.#{tag.name}") %></label>
                     </div>
                   </li>
                 <% end %>
@@ -29,12 +29,12 @@
         </div>
       <div class="row form-block">
           <div class="col-lg-4">
-            <h4>How much are items discounted up to?</h4>
+            <h4><%= t('.up_to_off') %></h4>
             <p class="text-muted text-sm">His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table.</p>
           </div>
           <div class="col-lg-7 ml-auto">
             <div class="col-lg-12">
-              <label class="form-label">Up to Percent Off</label>
+              <label class="form-label"><%= t('.add_new_listing') %></label>
               <div class="d-flex align-items-center">
                 <input type="text" class="js-range-slider" name="store_params[discount]" style="width: 100%;"
                   data-skin="round"
@@ -50,19 +50,19 @@
         </div>
       <div class="row form-block">
         <div class="col-lg-4">
-          <h4>Description</h4>
+          <h4><%= t('.description') %></h4>
           <p class="text-muted text-sm"> Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
         </div>
         <div class="col-lg-7 ml-auto">
           <div class="form-group mb-5">
-            <label for="description" class="form-label">Help shoppers understand what the store sells</label>
-            <textarea name="store_params[description]" id="description" rows="5" aria-describedby="descriptionHelp" class="form-control"><%= store.description %></textarea><small id="descriptionHelp" class="form-text text-muted mt-2">Example: "Great discounts on designers dresses and shoes. 50% off on most items."</small>
+            <label for="description" class="form-label"><%= t('.help_shoppers') %></label>
+            <textarea name="store_params[description]" id="description" rows="5" aria-describedby="descriptionHelp" class="form-control"><%= store.description %></textarea><small id="descriptionHelp" class="form-text text-muted mt-2"><%= t('.example') %></small>
           </div>
         </div>
       </div>
       <div class="row form-block flex-column flex-sm-row">
-        <div class="col text-center text-sm-left"><a onClick="custom.updateStore(event)" href="create-a-store?step=1" class="btn btn-link text-muted"><i class="fa-chevron-left fa mr-2"></i>Back</a></div>
-        <div class="col text-center text-sm-right"><a onClick="custom.updateStore(event)" href="create-a-store?step=3" class="btn btn-primary px-3">Next step<i class="fa-chevron-right fa ml-2"></i></a></div>
+        <div class="col text-center text-sm-left"><a onClick="custom.updateStore(event)" href="create-a-store?step=1" class="btn btn-link text-muted"><i class="fa-chevron-left fa mr-2"></i><%= t('.back') %></a></div>
+        <div class="col text-center text-sm-right"><a onClick="custom.updateStore(event)" href="create-a-store?step=3" class="btn btn-primary px-3"><%= t('.next_step') %><i class="fa-chevron-right fa ml-2"></i></a></div>
       </div>
     </form>
   </div>

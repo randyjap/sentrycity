@@ -16,9 +16,9 @@
           <div class="swiper-slide h-auto px-2">
             <div data-marker-id="<%= store.id.hash %>" class="w-100 h-100">
               <div class="card h-100 border-0 shadow">
-                <div class="ribbon ribbon-secondary"><%= I18n.locale == :cn ? store.discount.to_i / 10 : store.discount %><%= t('.off_sale') %></div>
+                <div class="ribbon ribbon-secondary"><%= I18n.locale == :zh ? store.discount.to_i / 10 : store.discount %><%= t('.off_sale') %></div>
                 <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><%= link_to("", store, class: "tile-link") %>
-                <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count_message %> - <%= store.comment_count_message %></div>
+                <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= "#{store.vote_count} #{t('.points')} - #{store.comment_count} #{t('.comments')}" %></div>
               </div>
               <div class="card-body d-flex align-items-center">
                 <div class="w-100">
@@ -57,9 +57,9 @@
           <div class="swiper-slide h-auto px-2">
             <div data-marker-id="<%= store.id.hash %>" class="w-100 h-100">
               <div class="card h-100 border-0 shadow">
-                <div class="ribbon ribbon-primary"><%= I18n.locale == :cn ? store.discount.to_i / 10 : store.discount %><%= t('.off_sale') %></div>
+                <div class="ribbon ribbon-primary"><%= I18n.locale == :zh ? store.discount.to_i / 10 : store.discount %><%= t('.off_sale') %></div>
                 <div class="card-img-top overflow-hidden gradient-overlay"><%= image_tag(store.photos.first, class: "img-fluid") %><%= link_to("", store, class: "tile-link") %>
-                <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= store.vote_count_message %> - <%= store.comment_count_message %></div>
+                <div class="card-img-overlay-bottom z-index-20 text-white text-m text-right"><%= "#{store.vote_count} #{t('.points')} - #{store.comment_count} #{t('.comments')}" %></div>
               </div>
               <div class="card-body d-flex align-items-center">
                 <div class="w-100">

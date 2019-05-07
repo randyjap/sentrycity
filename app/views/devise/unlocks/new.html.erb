@@ -3,23 +3,23 @@
     <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
       <div class="w-100 py-5 px-md-5 px-xl-6 position-relative">
         <div class="mb-5"><img src="<%= asset_path('logo-square.svg') %>" alt="SentryCity Logo" style="max-width: 4rem;" class="img-fluid mb-3">
-          <h2>Resend unlock instructions</h2>
+          <h2><%= t('.resend_instructions') %></h2>
         </div>
         <%= form_for(resource, as: resource, url: unlock_path(resource_name), html: { class: "form-validate" }) do |f| %>
           <div class="form-group">
-            <%= f.label :email, class: "form-label" %><br />
+            <%= f.label t('.email'), class: "form-label" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
           </div>
 
-          <%= f.submit "Unlock", class: "btn btn-lg btn-block btn-primary" %>
+          <%= f.submit t('.unlock'), class: "btn btn-lg btn-block btn-primary" %>
         <% end %>
         <hr class="my-4">
         <p class="text-center">
           <small class="text-muted text-center">
-            Don't have an account yet? <%= link_to "Sign Up", new_registration_path(resource) %>
+            <%= t('.no_account_yet') %> <%= link_to t('.sign_up'), new_registration_path(resource) %>
           </small><br />
           <small class="text-muted text-center">
-            <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource) %>
+            <%= link_to link_to t('.did_not_receive_confirmation_industructions'), new_confirmation_path(resource) %>
           </small><br />
         </p>
       </div>

@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
       comment.destroy
     end
 
-    @new_store = comment.store
+    @store = comment.store
     render "stores/comments"
   end
 
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
       comment.down_vote(current_user.id)
     end
 
-    @new_store = comment.store
+    @store = comment.store
     render "stores/comments"
   end
 
