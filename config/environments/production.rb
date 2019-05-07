@@ -71,17 +71,6 @@ Rails.application.configure do
   # Specifies host for URLs generated in mailer views
   config.action_mailer.default_url_options = { host: 'https://sentry-city.herokuapp.com' }
 
-  # Mail Credentials
-  config.action_mailer.smtp_settings = {
-    user_name:      Rails.application.credentials.mail[:username],
-    password:       Rails.application.credentials.mail[:password],
-    domain:        'gmail.com',
-    address:       'smtp.gmail.com',
-    port:          '587',
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
-
   # Mail Observer
   ActionMailer::Base.register_observer(BigQueryStorage)
 
