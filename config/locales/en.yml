@@ -100,6 +100,13 @@ en:
       grand_opening_sales: Grand opening sales
       off_sale: "% Off Sale"
   devise:
+    passwords:
+      edit:
+        change_your_password: Change your password
+        new_password: New Password
+        minimum_characters: characters minimum
+        confirm_password: Confirm new password
+        change_password: Change my password
     unlocks:
       new:
         email: Email

@@ -107,6 +107,13 @@ zh:
       grand_opening_sales: 新開幕優惠
       off_sale: 折
   devise:
+    passwords:
+      edit:
+        change_your_password: 更改您的密碼
+        new_password: 新密碼
+        minimum_characters: 最少個字符
+        confirm_password: 確認新密碼
+        change_password: 修改我的密碼
     unlocks:
       new:
         email: 電子郵件
