@@ -113,7 +113,7 @@ zh:
         resend_instructions: 重新發送確認說明
         unlock: 開鎖
         sign_up: 註冊
-        no_account_yet: 還沒有賬號？
+        no_account_yet: 還沒有帳號？
         did_not_receive_confirmation_industructions: 沒有收到確認說明？
     confirmations:
       new:
@@ -121,7 +121,7 @@ zh:
         resend_instructions: 重新發送確認說明
         resend: 重發
         sign_up: 註冊
-        no_account_yet: 還沒有賬號？
+        no_account_yet: 還沒有帳號？
         did_not_receive_unlock_industructions: 沒有收到解鎖說明？
     sessions:
       new:
@@ -129,11 +129,11 @@ zh:
         email: 電子郵件
         password: 密碼
         forgot_password: 忘記密碼了嗎？
-        remember_me: 記住賬號
+        remember_me: 記住帳號
         sign_in: 登入
         or: 或
-        facebook_login: 用Facebook登錄
-        no_account_yet: 還沒有賬號？
+        facebook_login: 用Facebook登入
+        no_account_yet: 還沒有帳號？
         sign_up: 註冊
         did_not_receive_confirmation_industructions: 沒有收到確認說明？
         did_not_receive_unlock_industructions: 沒有收到解鎖說明？
@@ -143,10 +143,10 @@ zh:
         email: 電子郵件
         password: 密碼
         forgot_password: 忘記密碼了嗎？
-        remember_me: 記住賬號
+        remember_me: 記住帳號
         or: 或
         facebook_signup: 用Facebook註冊
-        already: 已經有賬號？
+        already: 已經有帳號？
         login: 登錄
         did_not_receive_confirmation_industructions: 沒有收到確認說明？
         did_not_receive_unlock_industructions: 沒有收到解鎖說明？
