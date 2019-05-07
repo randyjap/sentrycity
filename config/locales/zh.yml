@@ -108,6 +108,10 @@ zh:
       off_sale: 折
   devise:
     passwords:
+      new:
+        forgot_password: 忘記密碼
+        email: 電子郵件
+        send_password_instructions: 發送密碼說明
       edit:
         change_your_password: 更改您的密碼
         new_password: 新密碼
