@@ -61,7 +61,7 @@
 #   }
 
 # Source code
-set :branch, "master"
+set :branch, "master" unless ENV['BRANCH']
 
 # Deployment servers
 role :app, "sentrycity"
