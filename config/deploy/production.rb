@@ -64,4 +64,4 @@
 set :branch, "master"
 
 # Deployment servers
-role :app, "ubuntu@18.213.78.4"
+role :app, "sentrycity"
