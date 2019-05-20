@@ -52,7 +52,7 @@ production:
   <<: *default
   database: sentrycity_production
   username: sentrycity
-  password: <%= ENV['SENTRYCITY_DATABASE_PASSWORD'] %>
+  password: Rails.application.credentials.database[:production]
 
 cucumber:
   <<: *test
