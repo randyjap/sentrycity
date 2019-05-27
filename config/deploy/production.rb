@@ -65,3 +65,6 @@ set :branch, "master" unless ENV['BRANCH']
 
 # Deployment servers
 role :app, "sentrycity"
+role :db, "sentrycity"
+
+set :linked_files, %w{config/master.key}
