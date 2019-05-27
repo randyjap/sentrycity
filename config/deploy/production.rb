@@ -61,7 +61,10 @@
 #   }
 
 # Source code
-set :branch, "master"
+set :branch, "master" unless ENV['BRANCH']
 
 # Deployment servers
-role :app, "ubuntu@18.213.78.4"
+role :app, "sentrycity"
+role :db, "sentrycity"
+
+set :linked_files, %w{config/master.key}

@@ -43,3 +43,4 @@ set :ssh_options, {
 }
 set :deploy_via, :remote_cache
 set :repository_cache, "git_cache"
+set :branch, ENV['BRANCH'] if ENV['BRANCH']
