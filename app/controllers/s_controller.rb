@@ -7,6 +7,7 @@ class SController < ApplicationController
     @params = search_params
     @stores = Store.
       filter(search_params).
+      active.
       includes(:district, :votes, :comments).
       with_attached_photos.
       group_by { |store| store.district.name }

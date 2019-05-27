@@ -1,24 +1,28 @@
 class CommentsController < ApplicationController
   def destroy
     comment = Comment.find(params[:id])
-    if comment.user.id == current_user.id
+    if comment.user == current_user
       comment.destroy
+      @store = comment.store
+      render "stores/comments"
+    else
+      render js: {}, status: 401
     end
-
-    @store = comment.store
-    render "stores/comments"
   end
 
   def comment_vote
     comment = Comment.find(params[:id])
-    if comment_params[:vote] == "1"
-      comment.up_vote(current_user.id)
-    elsif comment_params[:vote] == "-1"
-      comment.down_vote(current_user.id)
+    if comment.user == current_user
+      if comment_params[:vote] == "1"
+        comment.up_vote(current_user.id)
+      elsif comment_params[:vote] == "-1"
+        comment.down_vote(current_user.id)
+      end
+      @store = comment.store
+      render "stores/comments"
+    else
+      render js: {}, status: 401
     end
-
-    @store = comment.store
-    render "stores/comments"
   end
 
   private
