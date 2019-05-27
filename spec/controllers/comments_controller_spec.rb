@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe CommentsController do
-  let(:user) { FactoryBot.build :user }
+  let(:user) { FactoryBot.create :user }
 
   let(:comment_1) { FactoryBot.create :comment, user: user }
   let(:comment_2) { FactoryBot.create :comment }
@@ -32,9 +32,9 @@ RSpec.describe CommentsController do
           expect(response.status).to be(200)
         end
 
-        it "returns unauthorized WITHOUT valid ownership" do
+        it "returns ok WITHOUT valid ownership" do
           post :comment_vote, params: params_2.merge(comment_vote), format: :js
-          expect(response.status).to be(401)
+          expect(response.status).to be(200)
         end
       end
     end
@@ -42,9 +42,9 @@ RSpec.describe CommentsController do
 
   context "when NOT logged in" do
     describe "DELETE #destroy" do
-      it "returns unauthorized" do
+      it "redirects to login screen" do
         delete :destroy, params: params_1, format: :js
-        expect(response.status).to be(401)
+        expect(response).to redirect_to(new_user_session_url)
       end
     end
 
@@ -52,9 +52,9 @@ RSpec.describe CommentsController do
       let(:vote) { vote }
 
       describe "POST #comment_vote" do
-        it "returns unauthorized" do
+        it "redirects to login screen" do
           post :comment_vote, params: params_1.merge(comment_vote), format: :js
-          expect(response.status).to be(401)
+          expect(response).to redirect_to(new_user_session_url)
         end
       end
     end
