@@ -10,7 +10,6 @@ jobs:
       - image: circleci/ruby:2.6.3-node
         environment:
           RAILS_ENV: test
-          NODE_ENV: test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -48,6 +47,9 @@ jobs:
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
+
+      # Webpack
+      - run: bundle exec rails webpacker:compile
 
       # run tests!
       - run:
