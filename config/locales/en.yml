@@ -6,6 +6,8 @@ en:
   your_email: Your Email Address
   all_rights_reserved: All rights reserved
   search_button: Kazaam
+  app-settings:
+    off_sale: "% Off Sale"
   s:
     search_results:
       points: points
