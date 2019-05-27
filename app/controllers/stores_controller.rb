@@ -3,19 +3,11 @@ class StoresController < ApplicationController
 
   def bookmark
     @store = Store.find(params[:id])
-    @store.bookmark_toggle(current_user.id)
-  end
-
-  def create_a_store
-    @store = Store.find_or_create_by(user: current_user, state: 'draft')
-    step = params[:step].nil? ? 0 : params[:step].to_i - 1
-    @template_no = [1, 2, 3, 4, 5][step]
-  end
-
-  def update_create_a_store
-    @store = Store.find_by(user: current_user, state: 'draft')
-    @store.update(update_store_params)
-    @store.update(state: 'active') if params[:finished] == 'true'
+    if @store.user == current_user
+      @store.bookmark_toggle(current_user.id)
+    else
+      render js: {}, status: 401
+    end
   end
 
   def comments
@@ -23,6 +15,12 @@ class StoresController < ApplicationController
     comment = Comment.new(comment_params)
     comment.user = current_user
     @store.comments << comment
+  end
+
+  def create_a_store
+    @store = Store.find_or_create_by(user: current_user, state: 'draft')
+    step = params[:step].nil? ? 0 : params[:step].to_i - 1
+    @template_no = [1, 2, 3, 4, 5][step]
   end
 
   def show
@@ -41,11 +39,17 @@ class StoresController < ApplicationController
     @new_vote_count = @store.vote_count
   end
 
-  private
-
-  def vote_params
-    params.require(:store_vote).permit(:vote)
+  def update_create_a_store
+    @store = Store.find_by(user: current_user, state: 'draft')
+    if @store
+      @store.update(update_store_params)
+      @store.update(state: 'active') if params[:finished] == 'true'
+    else
+      render js: {}, status: 404
+    end
   end
+
+  private
 
   def comment_params
     params.require(:comment).permit(:text)
@@ -76,5 +80,9 @@ class StoresController < ApplicationController
         :lng,
         tag_ids: []
       )
+  end
+
+  def vote_params
+    params.require(:store_vote).permit(:vote)
   end
 end
