@@ -1,5 +1,5 @@
 See free demo deployment on heroku here:
-h1 [https://sentry-city.herokuapp.com/](https://sentry-city.herokuapp.com/)
+# [https://sentry-city.herokuapp.com/](https://sentry-city.herokuapp.com/)
 
 Follow deployment instructions below to setup AWS EC2 deployment.
 
