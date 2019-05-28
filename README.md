@@ -3,16 +3,16 @@ See free demo deployment on heroku here:
 
 Follow deployment instructions below to setup AWS EC2 deployment.
 
-* Ruby Version
+## Ruby Version
 2.6.3p62
 
-* Dependencies
+## Dependencies
 - https://imagemagick.org/index.php
 - Node v11.12.0 or higher
 - Yarn v1.15.2 or higher
 - MySQL 5.7
 
-* 3rd Party Services
+## 3rd Party Services
 - Facebook for Authentication
 - Google Maps API for autocompleting and geocoding addresses
 - AWS S3 for storage
@@ -21,7 +21,7 @@ Follow deployment instructions below to setup AWS EC2 deployment.
 - Sendgrid for sending emails
 - Loggly (Heroku Only) for Server Logging
 
-* Configure Credentials to Connect to 3rd Party Services
+## Configure Credentials to Connect to 3rd Party Services
 Open encrypted credentials via:
 `rails credentials:edit`
 
@@ -75,15 +75,15 @@ rails_configs:
   rails_serve_static_files: true
 ```
 
-* Database Creation and Initialization
+## Database Creation and Initialization
 `rails db:create`
 `rails db:schema:load` (WARNING: wipes everything!)
 `rails db:seed` (for demo data)
 
-* How to run the test suite
+## How to run the test suite
 `rspec`
 
-* Deployment instructions
+## Deployment instructions
 Use cloudformation template in 'deployment/cloudformation.yml' to create the AWS infrastructure to host the app.  Copy over the 'config/master.key' into the shared config folder (e.g. ../www/sentrycity/shared/config).
 
 Deploy via capistrano with `cap production deploy`.  Set 'BRANCH' environment variable to deploy anything other than master.
