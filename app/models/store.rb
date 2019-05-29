@@ -65,7 +65,7 @@ class Store < ApplicationRecord
   end
 
   def self.format_bhours(original_hours)
-    return nil unless original_hours
+    return nil unless original_hours.present?
     open, close = original_hours.split(';')
     open = open + ':00'
     close = close + ':00'
