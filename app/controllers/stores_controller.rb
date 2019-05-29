@@ -40,10 +40,11 @@ class StoresController < ApplicationController
   end
 
   def update_create_a_store
-    @store = Store.find_by(user: current_user, state: 'draft')
-    if @store
+    if @store = Store.find_by(user: current_user, state: 'draft')
       @store.update(update_store_params)
       @store.update(state: 'active') if next_form_no_params == 5
+    else
+      render js: {}, status: 404
     end
     create_a_store(next_form_no_params)
   end
