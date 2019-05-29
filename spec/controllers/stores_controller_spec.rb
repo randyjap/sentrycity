@@ -8,7 +8,7 @@ RSpec.describe StoresController do
   let(:draft_store) { FactoryBot.create :store, state: 'draft' }
   let(:params_1) { { id: store_1.id } }
   let(:params_2) { { id: store_2.id } }
-  let(:update_params) { { store_params: { name: '' } } }
+  let(:update_params) { { next_form_no: 2, store_params: { name: '' } } }
   let(:comment_params) { { comment: { text: '' } } }
   let(:comment_vote) { { store_vote: { vote: vote } } }
 
