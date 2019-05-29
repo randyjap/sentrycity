@@ -7,6 +7,6 @@
     <h1 class="h2 mb-5"><%= t('.listing_uploaded') %></h1>
     <p class="mb-5"><%= image_tag('celebration.svg', style: "width: 400px;", class: "img-fluid") %></p>
     <p class="text-muted mb-5"><%= t('.thank_you') %>, <%= current_user.name || current_user.email %>. <%= t('.reviewed_shortly') %></p>
-    <p class="mb-5"><a href="/" class="btn btn-primary mr-2 mb-2"><%= t('.return_home') %></a>
+    <p class="mb-5"><%= link_to(t('.see_your_listing'), store_path(current_user.stores.last), class: "btn btn-primary mr-2 mb-2") %>
   </div>
 </section>

@@ -46,7 +46,9 @@
   <div class="container">
     <p class="subtitle text-primary"><%= t('.add_new_listing') %></p>
     <h1 class="h2 mb-5"> <%= t('.basic_info') %> <span class="text-muted float-right"><%= t('.step_1') %></span></h1>
-    <form id="create-a-store-form">
+    <form action="/create-a-store" method="post" id="create-a-store-form">
+      <input type="hidden" name="authenticity_token" value="token_value">
+      <input name="_method" type="hidden" value="put" />
       <div class="row form-block">
         <div class="col-lg-4">
           <h4><%= t('.basic') %></h4>
@@ -56,7 +58,7 @@
           <div class="form-group">
             <label class="form-label"><%= t('.grand_opening_or_farewell_sale') %></label>
             <div class="custom-control custom-radio">
-              <input value="Farewell Sale" <%= store.event_type && store.event_type == "Farewell Sale" ? "checked" : "" %> type="radio" id="event-type-farewell-sale" name="store_params[event_type]" class="custom-control-input">
+              <input value="Farewell Sale" <%= store.event_type && store.event_type == "Farewell Sale" ? "checked" : "" %> <%= store.event_type.nil? ? "checked" : "" %> type="radio" id="event-type-farewell-sale" name="store_params[event_type]" class="custom-control-input">
               <label for="event-type-farewell-sale" class="custom-control-label"><%= t('.farewell_sale') %></label>
             </div>
             <div class="custom-control custom-radio">
@@ -107,7 +109,7 @@
       </div>
       <div class="row form-block flex-column flex-sm-row">
         <div class="col text-center text-sm-left"></div>
-        <div class="col text-center text-sm-right"><a onClick="custom.updateStore(event)" href="create-a-store?step=2" class="btn btn-primary px-3"><%= t('.next_step') %><i class="fa-chevron-right fa ml-2"></i></a></div>
+        <div class="col text-center text-sm-right"><button name="next_form_no" value="2" class="btn btn-primary px-3"><%= t('.next_step') %><i class="fa-chevron-right fa ml-2"></i></button></div>
       </div>
     </form>
   </div>
@@ -223,4 +225,6 @@
     });
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:key] %>&libraries=places&callback=initMap" async defer></script>
+<% if Rails.env == 'production' %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:key] %>&libraries=places&callback=initMap" async defer></script>
+<% end %>

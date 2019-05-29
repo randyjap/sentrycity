@@ -17,10 +17,10 @@ class StoresController < ApplicationController
     @store.comments << comment
   end
 
-  def create_a_store
+  def create_a_store(t_no = nil)
     @store = Store.find_or_create_by(user: current_user, state: 'draft')
     step = params[:step].nil? ? 0 : params[:step].to_i - 1
-    @template_no = [1, 2, 3, 4, 5][step]
+    @template_no = t_no ? t_no : [1, 2, 3, 4, 5][step]
   end
 
   def show
@@ -43,16 +43,19 @@ class StoresController < ApplicationController
     @store = Store.find_by(user: current_user, state: 'draft')
     if @store
       @store.update(update_store_params)
-      @store.update(state: 'active') if params[:finished] == 'true'
-    else
-      render js: {}, status: 404
+      @store.update(state: 'active') if next_form_no_params == 5
     end
+    create_a_store(next_form_no_params)
   end
 
   private
 
   def comment_params
     params.require(:comment).permit(:text)
+  end
+
+  def next_form_no_params
+    params.require(:next_form_no)
   end
 
   def update_store_params

@@ -24,13 +24,15 @@
     <div id="photo-upload-gallery" class="text-block">
       <%= render partial: 'stores/create_a_store/gallery', locals: { store: store } %>
     </div>
-    <div class="row form-block">
-      <div class="col-lg-4">
-        <h4><%= t('.contact_info') %></h4>
-        <p class="text-muted text-sm">Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
-      </div>
-      <div class="col-lg-7 ml-auto">
-        <form id="create-a-store-form">
+    <form action="/create-a-store" method="post" id="create-a-store-form">
+      <div class="row form-block">
+        <div class="col-lg-4">
+          <h4><%= t('.contact_info') %></h4>
+          <p class="text-muted text-sm">Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+        </div>
+        <div class="col-lg-7 ml-auto">
+          <input type="hidden" name="authenticity_token" value="token_value">
+          <input name="_method" type="hidden" value="put" />
           <!-- Phone Number-->
           <div class="form-group">
             <label for="form_phone" class="form-label"><%= t('.phone') %></label>
@@ -41,13 +43,13 @@
             <label for="form_website" class="form-label"><%= t('.website') %></label>
             <input value="<%= store.url %>" name="store_params[url]" id="form_website" class="form-control col-lg-4">
           </div>
-        </form>
+        </div>
       </div>
-    </div>
-    <div class="row form-block flex-column flex-sm-row">
-      <div class="col text-center text-sm-left"><a onClick="custom.updateStore(event)" href="create-a-store?step=3" class="btn btn-link text-muted"><i class="fa-chevron-left fa mr-2"></i><%= t('.back') %></a></div>
-      <div class="col text-center text-sm-right"><a onClick="custom.updateStore(event, 'true')" href="create-a-store?step=5" class="btn btn-primary px-3"><%= t('.finish') %><i class="fa-chevron-right fa ml-2"></i></a></div>
-    </div>
+      <div class="row form-block flex-column flex-sm-row">
+        <div class="col text-center text-sm-left"><button name="next_form_no" value="3" class="btn btn-link text-muted"><i class="fa-chevron-left fa mr-2"></i><%= t('.back') %></button></div>
+        <div class="col text-center text-sm-right"><button name="next_form_no" value="5" class="btn btn-primary px-3"><%= t('.finish') %><i class="fa-chevron-right fa ml-2"></i></button></div>
+      </div>
+    </form>
   </div>
 </section>
 
