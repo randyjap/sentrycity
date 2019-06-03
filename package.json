@@ -5,19 +5,19 @@
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
-    "@rails/webpacker": "^4.0.2",
+    "@rails/webpacker": "^4.0.6",
     "bootstrap": "^4.3.1",
-    "bootstrap-select": "^1.13.8",
-    "jquery": "^3.3.1",
+    "bootstrap-select": "^1.13.10",
+    "jquery": "^3.4.1",
     "magnific-popup": "^1.1.0",
     "object-fit-images": "^3.2.4",
-    "popper.js": "^1.14.7",
+    "popper.js": "^1.15.0",
     "smooth-scroll": "^16.0.3",
     "swiper": "^4.5.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.5.1"
   }
 }
